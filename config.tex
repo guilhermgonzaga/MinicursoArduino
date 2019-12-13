@@ -1,0 +1,81 @@
+%\documentclass[unknownkeysallowed]{beamer}
+\documentclass{beamer}
+\usetheme{focus}
+%\mode<presentation>
+
+
+% TEMA -----------------------------------------------------------------------------------
+
+
+\definecolor{main}{HTML}{00878F}
+\definecolor{background}{HTML}{ECF1F1}
+\definecolor{alert}{HTML}{F29C2D}
+\definecolor{example}{HTML}{8C7965}
+\setbeamercolor{normal text}{fg=black, bg=background}
+
+\definecolor{secondary}{HTML}{E47128}
+\setbeamercolor{itemize item}{fg=secondary}
+\setbeamercolor{itemize subitem}{fg=secondary}
+\setbeamercolor{enumerate item}{fg=secondary!90!black}
+\setbeamercolor{enumerate subitem}{fg=secondary!90!black}
+\setbeamercolor{description item}{fg=secondary}
+\setbeamercolor{description subitem}{fg=secondary}
+
+\setbeamerfont{footline}{size=\tiny}
+
+\setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
+
+
+% PACOTES --------------------------------------------------------------------------------
+
+
+\usepackage[brazilian]{babel}
+\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
+\usepackage[cache=false, section]{minted}
+
+
+% COMPORTAMENTO --------------------------------------------------------------------------
+
+
+\AtEndDocument{\FinalFrame}
+
+\graphicspath{{"../images/"}{images/}} % Diretórios de imagens
+
+
+% METADADOS ------------------------------------------------------------------------------
+
+
+\subtitle{Minicurso de Arduino}
+\author{}
+\institute[Facom/UFMS]{\vspace{-\bigskipamount}
+  \begin{columns}[c, onlytextwidth]
+    \column{0.6\linewidth}%\normalsize
+      Faculdade de Computação -- Facom\bigskip\\
+      Universidade Federal de Mato Grosso do Sul -- UFMS
+    \column{0.22\linewidth}
+      \includegraphics[width=\linewidth]{grafoFacom.png}
+  \end{columns}
+}
+\date{\the\year}
+
+
+% MINTED ---------------------------------------------------------------------------------
+
+
+\usemintedstyle{arduino}
+
+\setminted{
+%  beameroverlays=true,
+  codetagify={"TODO XXX"},
+  bgcolor=white,
+  highlightcolor=background,
+  fontsize=\scriptsize,
+  baselinestretch=0.95,
+  tabsize=2,
+  autogobble=true,
+  breaklines=true,
+  breakbytoken=true,
+  breaksymbolleft=\color{black}\ssmall\ensuremath{\hookrightarrow},
+  escapeinside=@@,
+  mathescape=true
+}
