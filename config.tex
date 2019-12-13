@@ -1,11 +1,12 @@
 %\documentclass[unknownkeysallowed]{beamer}
 \documentclass{beamer}
-\usetheme{focus}
 %\mode<presentation>
 
 
-% TEMA -----------------------------------------------------------------------------------
+% THEME SETUP ----------------------------------------------------------------------------
 
+
+\usetheme{focus}
 
 \definecolor{main}{HTML}{00878F}
 \definecolor{background}{HTML}{ECF1F1}
@@ -26,30 +27,14 @@
 \setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
 
 
-% PACOTES --------------------------------------------------------------------------------
-
-
-\usepackage[brazilian]{babel}
-\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
-\usepackage[cache=false, section]{minted}
-
-
-% COMPORTAMENTO --------------------------------------------------------------------------
-
-
-\AtEndDocument{\FinalFrame}
-
-\graphicspath{{"../images/"}{images/}} % Diretórios de imagens
-
-
-% METADADOS ------------------------------------------------------------------------------
+% DESCRIPTIVE METADATA -------------------------------------------------------------------
 
 
 \subtitle{Minicurso de Arduino}
 \author{}
 \institute[Facom/UFMS]{\vspace{-\bigskipamount}
   \begin{columns}[c, onlytextwidth]
-    \column{0.6\linewidth}%\normalsize
+    \column{0.6\linewidth}
       Faculdade de Computação -- Facom\bigskip\\
       Universidade Federal de Mato Grosso do Sul -- UFMS
     \column{0.22\linewidth}
@@ -59,23 +44,38 @@
 \date{\the\year}
 
 
-% MINTED ---------------------------------------------------------------------------------
+% PACKAGES -------------------------------------------------------------------------------
+
+
+\usepackage[brazilian]{babel}
+\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
+\usepackage[cache=false, section]{minted}
+
+
+% MINTED OPTIONS -------------------------------------------------------------------------
 
 
 \usemintedstyle{arduino}
 
 \setminted{
 %  beameroverlays=true,
-  codetagify={"TODO XXX"},
   bgcolor=white,
   highlightcolor=background,
+%   autogobble=true,
+  tabsize=2,
   fontsize=\scriptsize,
   baselinestretch=0.95,
-  tabsize=2,
-  autogobble=true,
   breaklines=true,
   breakbytoken=true,
   breaksymbolleft=\color{black}\ssmall\ensuremath{\hookrightarrow},
   escapeinside=@@,
   mathescape=true
 }
+
+
+% BEHAVIOR -------------------------------------------------------------------------------
+
+
+\AtEndDocument{\FinalFrame}
+
+\graphicspath{{"../images/"}{images/}} % Shared and local image paths, respectively.
