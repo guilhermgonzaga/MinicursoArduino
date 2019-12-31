@@ -3,31 +3,51 @@
 %\mode<presentation>
 
 
-% THEME SETUP ----------------------------------------------------------------------------
+% CUSTOM COLOR DEFINITION ==============
+
+
+\definecolor{CustomBrown}{HTML}{8C7965}
+\definecolor{CustomOrange}{HTML}{E47128}
+\definecolor{CustomTeal}{HTML}{00878F}
+\definecolor{CustomYellow}{HTML}{E5AD24}
+\definecolor{CustomLightBrown}{HTML}{BCAC9A}
+\definecolor{CustomLightGrey}{HTML}{ECF1F1}
+\definecolor{CustomLightOrange}{HTML}{F29C2D}
+\definecolor{CustomLightTeal}{HTML}{62AEB2}
+
+
+% THEME SETUP ==========================
 
 
 \usetheme{focus}
 
-\definecolor{main}{HTML}{00878F}
-\definecolor{background}{HTML}{ECF1F1}
-\definecolor{alert}{HTML}{F29C2D}
-\definecolor{example}{HTML}{8C7965}
-\setbeamercolor{normal text}{fg=black, bg=background}
+\definecolor{main}{named}{CustomTeal}
+\definecolor{background}{named}{CustomLightGrey}
+\definecolor{alert}{named}{CustomLightOrange}
+\definecolor{example}{named}{CustomBrown}
 
-\definecolor{secondary}{HTML}{E47128}
-\setbeamercolor{itemize item}{fg=secondary}
-\setbeamercolor{itemize subitem}{fg=secondary}
-\setbeamercolor{enumerate item}{fg=secondary!90!black}
-\setbeamercolor{enumerate subitem}{fg=secondary!90!black}
-\setbeamercolor{description item}{fg=secondary}
-\setbeamercolor{description subitem}{fg=secondary}
+\setbeamercolor{normal text}{fg=black, bg=background}
+\setbeamercolor{itemize item}{fg=CustomOrange}
+\setbeamercolor{itemize subitem}{fg=CustomOrange}
+\setbeamercolor{enumerate item}{fg=CustomOrange!90!black}
+\setbeamercolor{enumerate subitem}{fg=CustomOrange!90!black}
+\setbeamercolor{description item}{fg=CustomOrange}
+\setbeamercolor{description subitem}{fg=CustomOrange}
 
 \setbeamerfont{footline}{size=\tiny}
 
 \setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
 
 
-% DESCRIPTIVE METADATA -------------------------------------------------------------------
+% PACKAGES =============================
+
+
+\usepackage[brazilian]{babel}
+\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
+\usepackage[cache=false, section]{minted}
+
+
+% DESCRIPTIVE METADATA =================
 
 
 \subtitle{Minicurso de Arduino}
@@ -38,44 +58,36 @@
       Faculdade de Computação -- Facom\bigskip\\
       Universidade Federal de Mato Grosso do Sul -- UFMS
     \column{0.22\linewidth}
-      \includegraphics[width=\linewidth]{grafoFacom.png}
+      \includegraphics[width=\linewidth]{facomGraph.png}
   \end{columns}
 }
 \date{\the\year}
 
 
-% PACKAGES -------------------------------------------------------------------------------
+% MINTED OPTIONS =======================
 
 
-\usepackage[brazilian]{babel}
-\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
-\usepackage[cache=false, section]{minted}
-
-
-% MINTED OPTIONS -------------------------------------------------------------------------
-
-
-\usemintedstyle{arduino}
+\usemintedstyle{perldoc}
+\usemintedstyle[arduino]{arduino}
 
 \setminted{
 %  beameroverlays=true,
   bgcolor=white,
-  highlightcolor=background,
-%   autogobble=true,
+  highlightcolor=CustomYellow!20!white,
+  autogobble=true,
   tabsize=2,
   fontsize=\scriptsize,
   baselinestretch=0.95,
   breaklines=true,
   breakbytoken=true,
-  breaksymbolleft=\color{black}\ssmall\ensuremath{\hookrightarrow},
   escapeinside=@@,
   mathescape=true
 }
 
 
-% BEHAVIOR -------------------------------------------------------------------------------
+% BEHAVIOR =============================
 
 
 \AtEndDocument{\FinalFrame}
 
-\graphicspath{{"../images/"}{images/}} % Shared and local image paths, respectively.
+\graphicspath{{"../graphics/"}{graphics/}} % Shared and local image paths, respectively.
