@@ -3,7 +3,7 @@
 %\mode<presentation>
 
 
-% CUSTOM COLOR DEFINITION ==============
+% PALETA DE CORES ======================
 
 
 \definecolor{CustomBrown}{HTML}{8C7965}
@@ -16,7 +16,7 @@
 \definecolor{CustomLightTeal}{HTML}{62AEB2}
 
 
-% THEME SETUP ==========================
+% TEMA =================================
 
 
 \usetheme{focus}
@@ -39,15 +39,7 @@
 \setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
 
 
-% PACKAGES =============================
-
-
-\usepackage[brazilian]{babel}
-\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
-\usepackage[cache=false, section]{minted}
-
-
-% DESCRIPTIVE METADATA =================
+% METADADOS ============================
 
 
 \subtitle{Minicurso de Arduino}
@@ -64,7 +56,16 @@
 \date{\the\year}
 
 
-% MINTED OPTIONS =======================
+% PACOTES ==============================
+
+
+\usepackage[brazilian]{babel}
+\usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
+\usepackage[cache=false, section]{minted}
+\usepackage{multirow}
+
+
+% MINTED ===============================
 
 
 \usemintedstyle{perldoc}
@@ -85,9 +86,11 @@
 }
 
 
-% BEHAVIOR =============================
+% COMPORTAMENTO ========================
 
+
+\AtBeginSection{}
 
 \AtEndDocument{\FinalFrame}
 
-\graphicspath{{"../graphics/"}{graphics/}} % Shared and local image paths, respectively.
+\graphicspath{{"../imagens/"}{imagens/}} % Diretórios de imagens geral e local, respectivamente.

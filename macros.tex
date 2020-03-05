@@ -1,11 +1,11 @@
-\newcommand{\SketchPath}[1]{sketches/#1} % Abstraction for local sketches folder
+\newcommand{\SketchPath}[1]{sketches/#1/#1.ino} % Abstração do diretório local de sketches
 
 \newcommand{\Email}[1]{\href{mailto:#1}{\texttt{#1}}}
 
-\newcommand{\Link}[2][] % Macro for URLs; optional parameter is text to link URL to
-  {\href{#2}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{\textbf{#1}}}}
+\newcommand{\Link}[2][] % Macro para URLs; parâmetro opcional é o texto do hyperlink
+  {\href{#2}{\textcolor{CustomTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
 
-\newcommand{\FinalFrame}{%% Final frame for each presentation, predefined for consistency
+\newcommand{\FinalFrame}{%% Último frame de cada apresentação predefinido
 \begin{frame}[focus,b]{Por enquanto é só}\centering
   \begin{columns}[c,onlytextwidth]
   \column{0.7\linewidth}
@@ -19,5 +19,5 @@
   \end{columns}
   \vfill
   {\scriptsize \doclicenseThis}
-\end{frame}
+\end{frame}%
 }
