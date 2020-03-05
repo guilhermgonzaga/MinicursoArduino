@@ -1,0 +1,76 @@
+\section{Introdução à Linguagem}
+
+
+\begin{frame}{\insertsection}
+  Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar. \medskip
+
+  Vamos mostrar o básico para que vocês se virem. Contudo, recomendamos que pratiquem no tempo livre.
+\end{frame}
+
+
+\begin{frame}{\insertsection: variáveis e tipos}
+  Variáveis são declaradas da seguinte forma.
+  \inputminted[firstline=1,lastline=1]{arduino}{\SketchPath{introLinguagem}}
+  Também é possível inicializar uma variável na declaração.
+  \inputminted[firstline=2,lastline=2]{arduino}{\SketchPath{introLinguagem}}
+
+  É preciso especificar um tipo na declaração da variável. Essa característica se chama tipagem estática.
+
+  % TODO Note que todo comando termina com ponto e vírgula.
+\end{frame}
+
+
+\begin{frame}{\insertsection: tipos e variáveis}
+  Estes tipos são suficientes para o minicurso.
+
+  \begin{description}
+    \item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}; também chamado \textbf{\texttt{\textcolor{CustomOrange}{boolean}}}
+    \item[\texttt{char}] inteiros de 8 bits
+    \item[\texttt{byte}] inteiros não negativos de 8 bits
+%    \item[\texttt{short}] inteiros de 16 bits
+    \item[\texttt{int}] inteiros de 16 bits
+%    \item[\texttt{word}] inteiros não negativos de 16 bits
+    \item[\texttt{long}] inteiros de 32 bits
+    \item[\texttt{float}] ponto flutuante de 32 bits
+%    \item[\texttt{double}] ponto flutuante de 32 bits
+    \item[\texttt{String}] texto
+    \item[\texttt{...}] \textit{tipos específicos para cada módulo}
+  \end{description}
+
+  \vfill
+  \textbf{Obs.:} esses tamanhos são referentes ao Mega 2560 e podem mudar em outras plataformas.
+\end{frame}
+
+
+\begin{frame}{\insertsection: tipos e modificadores}
+  Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \textbf{\texttt{\textcolor{CustomOrange}{unsigned}}}.
+  \inputminted[firstline=4,lastline=7]{arduino}{\SketchPath{introLinguagem}}
+
+  \pause
+  Pensando bem, \textbf{\texttt{\textcolor{CustomOrange}{byte}}} é o mesmo que \textbf{\texttt{\textcolor{CustomOrange}{unsigned~char}}}.
+\end{frame}
+
+
+\begin{frame}{\insertsection: tipos e modificadores}
+  \textcolor{red}{TODO} const
+\end{frame}
+
+
+\begin{frame}{\insertsection: operadores}
+  \textcolor{red}{TODO}
+\end{frame}
+
+
+\begin{frame}{\insertsection: if-else}
+  \textcolor{red}{TODO}
+\end{frame}
+
+
+\begin{frame}{\insertsection: while e for}
+  \textcolor{red}{TODO}
+\end{frame}
+
+
+\begin{frame}{\insertsection: funções}
+  \textcolor{red}{TODO}
+\end{frame}

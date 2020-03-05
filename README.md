@@ -7,14 +7,16 @@ Os slides foram feitos em Latex/Beamer com o tema [Focus](https://github.com/ela
 
 ## Ementa
 
-<!--
-### Aula 0
-### Aula 1
-### Aula 2
-### Aula 3
- -->
+As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes no diretório de trabalho.
+
+### Aula 0 (opcional)
+
+1. Descrição do Arduino Mega 2560
+1. Ambiente de desenvolvimento (Arduino IDE)
+1. Introdução à Linguagem (C++)
 
 
-## Depedências externas
+## Dependências externas
 
+1. MiKTeX (pdflatex)
 1. Python (Pygments)
