@@ -5,22 +5,27 @@
   Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar. \medskip
 
   Vamos mostrar o básico para que vocês se virem. Contudo, recomendamos que pratiquem no tempo livre.
+
+  % TODO Notem que todo comando termina com ponto e vírgula.
 \end{frame}
 
 
-\begin{frame}{\insertsection: variáveis e tipos}
+\subsection{Tipos e variáveis}
+
+
+\begin{frame}[b]{\insertsection: \insertsubsection}
   Variáveis são declaradas da seguinte forma.
-  \inputminted[firstline=1,lastline=1]{arduino}{\SketchPath{introLinguagem}}
+  \inputminted[firstline=1,lastline=1]{arduino}{sketches/introLinguagem/variaveis.ino}
+
   Também é possível inicializar uma variável na declaração.
-  \inputminted[firstline=2,lastline=2]{arduino}{\SketchPath{introLinguagem}}
+  \inputminted[firstline=2,lastline=2]{arduino}{fsketches/introLinguagem/variaveis.ino}
 
-  É preciso especificar um tipo na declaração da variável. Essa característica se chama tipagem estática.
-
-  % TODO Note que todo comando termina com ponto e vírgula.
+  \vfill
+  \textbf{Obs.:} é preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.\smallskip\\
 \end{frame}
 
 
-\begin{frame}{\insertsection: tipos e variáveis}
+\begin{frame}{\insertsection: \insertsubsection}
   Estes tipos são suficientes para o minicurso.
 
   \begin{description}
@@ -31,8 +36,7 @@
     \item[\texttt{int}] inteiros de 16 bits
 %    \item[\texttt{word}] inteiros não negativos de 16 bits
     \item[\texttt{long}] inteiros de 32 bits
-    \item[\texttt{float}] ponto flutuante de 32 bits
-%    \item[\texttt{double}] ponto flutuante de 32 bits
+    \item[\texttt{float}] ponto flutuante de 32 bits; equivale a \textbf{\texttt{\textcolor{CustomOrange}{double}}}
     \item[\texttt{String}] texto
     \item[\texttt{...}] \textit{tipos específicos para cada módulo}
   \end{description}
@@ -42,35 +46,62 @@
 \end{frame}
 
 
-\begin{frame}{\insertsection: tipos e modificadores}
+\begin{frame}{\insertsection: \insertsubsection}
   Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \textbf{\texttt{\textcolor{CustomOrange}{unsigned}}}.
-  \inputminted[firstline=4,lastline=7]{arduino}{\SketchPath{introLinguagem}}
+  \inputminted[firstline=4,lastline=8]{arduino}{sketches/introLinguagem/variaveis.ino}
 
   \pause
-  Pensando bem, \textbf{\texttt{\textcolor{CustomOrange}{byte}}} é o mesmo que \textbf{\texttt{\textcolor{CustomOrange}{unsigned~char}}}.
+  Respondam: que tipo é equivalente a \textbf{\texttt{\textcolor{CustomOrange}{unsigned~char}}}?\\
+  \only<0|handout:2>{R: \textbf{\texttt{\textcolor{CustomOrange}{byte}}}}
 \end{frame}
 
 
-\begin{frame}{\insertsection: tipos e modificadores}
-  \textcolor{red}{TODO} const
+\begin{frame}{\insertsection: \insertsubsection}
+  Quando não se quer que o valor duma variável mude, pode-se usar o modificador \textbf{\texttt{\textcolor{CustomOrange}{const}}}.
+
+  \inputminted[firstline=10,lastline=11]{arduino}{sketches/introLinguagem/variaveis.ino}
+
+  Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
 \end{frame}
 
 
-\begin{frame}{\insertsection: operadores}
+\begin{frame}{\insertsection: \insertsubsection}
+  Se não entendeu direito, use o especificador \textbf{\texttt{\textcolor{CustomOrange}{auto}}} e deixe que o compilador adivinhe os tipos para você!
+  \inputminted[firstline=13,lastline=17]{arduino}{sketches/introLinguagem/variaveis.ino}
+
+  \pause
+  Mas cuidado com o tipo \textbf{\texttt{\textcolor{CustomOrange}{String}}}.
+  \inputminted[firstline=19,lastline=23]{arduino}{sketches/introLinguagem/variaveis.ino}
+\end{frame}
+
+
+\subsection{Operadores}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
   \textcolor{red}{TODO}
 \end{frame}
 
 
-\begin{frame}{\insertsection: if-else}
+\subsection{Condicionais}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
   \textcolor{red}{TODO}
 \end{frame}
 
 
-\begin{frame}{\insertsection: while e for}
+\subsection{Laços}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
   \textcolor{red}{TODO}
 \end{frame}
 
 
-\begin{frame}{\insertsection: funções}
+\subsection{Funções}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
   \textcolor{red}{TODO}
 \end{frame}
