@@ -1,7 +1,6 @@
 # Guia de contribuição
 
 1. Estenda o arquivo `.gitattributes` com novas extensões de arquivos binários que porventura inclua no repositório.
-1. Adicione arquivos de texto à *staging area* com a opção `--renormalize` para garantir consistência entre quebras de linha.
 1. Siga o padrão visual dos slides.
 
 
