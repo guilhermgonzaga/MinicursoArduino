@@ -1,4 +1,4 @@
-// Propositadamente vazio apenas para abrir na IDE e passar por testes
+// Propositadamente vazio apenas passar em testes de compilação
 void setup() {}
 
 void loop() {}
