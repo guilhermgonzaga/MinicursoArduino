@@ -2,26 +2,34 @@
 
 
 \begin{frame}{\insertsection}
-  Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar. \medskip
+  \only<1>{%
+    Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar.
 
-  Vamos mostrar o básico para que vocês se virem. Contudo, recomendamos que pratiquem no tempo livre.
+    \bigskip
+    Vamos mostrar só o básico para que vocês se virem.%
+  }
 
-  % TODO Notem que todo comando termina com ponto e vírgula.
+  \only<2>{%
+    \bigskip
+    Diferenças claras entre C++ e Python:
+    \begin{enumerate}
+    \item Todo comando termina com ponto e vírgula.
+    \item Quebras de linha e espaços extras não fazem diferença. Portanto, lembre-se que há vários estilos para se usar. Só não faça algo ilegível ou inconsistente.
+    \item É preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.
+    \end{enumerate}%
+  }
 \end{frame}
 
 
 \subsection{Tipos e variáveis}
 
 
-\begin{frame}[b]{\insertsection: \insertsubsection}
+\begin{frame}{\insertsection: \insertsubsection}
   Variáveis são declaradas da seguinte forma.
-  \inputminted[firstline=1,lastline=1]{arduino}{sketches/introLinguagem/variaveis.ino}
+  \inputminted[firstline=1,lastline=1]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   Também é possível inicializar uma variável na declaração.
-  \inputminted[firstline=2,lastline=2]{arduino}{fsketches/introLinguagem/variaveis.ino}
-
-  \vfill
-  \textbf{Obs.:} é preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.\smallskip\\
+  \inputminted[firstline=2,lastline=2]{arduino}{fsketches/introLinguagem/.variaveis.ino}
 \end{frame}
 
 
@@ -38,17 +46,18 @@
     \item[\texttt{long}] inteiros de 32 bits
     \item[\texttt{float}] ponto flutuante de 32 bits; equivale a \textbf{\texttt{\textcolor{CustomOrange}{double}}}
     \item[\texttt{String}] texto
+    \item[\texttt{void}] tipo que significa "nada"; variáveis não podem ter esse tipo
     \item[\texttt{...}] \textit{tipos específicos para cada módulo}
   \end{description}
 
   \vfill
-  \textbf{Obs.:} esses tamanhos são referentes ao Mega 2560 e podem mudar em outras plataformas.
+  \textbf{Obs.:} esses tamanhos são referentes ao Mega 2560 e \textbf{são diferentes} em outras plataformas.
 \end{frame}
 
 
 \begin{frame}{\insertsection: \insertsubsection}
   Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \textbf{\texttt{\textcolor{CustomOrange}{unsigned}}}.
-  \inputminted[firstline=4,lastline=8]{arduino}{sketches/introLinguagem/variaveis.ino}
+  \inputminted[firstline=4,lastline=8]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   \pause
   Respondam: que tipo é equivalente a \textbf{\texttt{\textcolor{CustomOrange}{unsigned~char}}}?\\
@@ -59,7 +68,7 @@
 \begin{frame}{\insertsection: \insertsubsection}
   Quando não se quer que o valor duma variável mude, pode-se usar o modificador \textbf{\texttt{\textcolor{CustomOrange}{const}}}.
 
-  \inputminted[firstline=10,lastline=11]{arduino}{sketches/introLinguagem/variaveis.ino}
+  \inputminted[firstline=10,lastline=14]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
 \end{frame}
@@ -67,11 +76,11 @@
 
 \begin{frame}{\insertsection: \insertsubsection}
   Se não entendeu direito, use o especificador \textbf{\texttt{\textcolor{CustomOrange}{auto}}} e deixe que o compilador adivinhe os tipos para você!
-  \inputminted[firstline=13,lastline=17]{arduino}{sketches/introLinguagem/variaveis.ino}
+  \inputminted[firstline=16,lastline=20]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   \pause
   Mas cuidado com o tipo \textbf{\texttt{\textcolor{CustomOrange}{String}}}.
-  \inputminted[firstline=19,lastline=23]{arduino}{sketches/introLinguagem/variaveis.ino}
+  \inputminted[firstline=22,lastline=26]{arduino}{sketches/introLinguagem/.variaveis.ino}
 \end{frame}
 
 
@@ -79,7 +88,34 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  \textcolor{red}{TODO}
+  \begin{columns}
+  \column{0.51\linewidth}
+    \begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
+      \centering
+      \begin{tabular}{|c|l|}                                        \hline
+        \textbf{Categoria} & \textbf{Operador}                   \\ \hline
+        Pós-fixados        & \multirow{2}{*}{\texttt{++ {-}{-}}} \\
+        (unários)          &                                     \\ \hline
+        Prefixados         & \texttt{++ {-}{-} + -} \\
+        (unários)          & \texttt{!(not)}                    \\ \hline
+        Multiplicativos    & \texttt{* / \%}                     \\ \hline
+        Aditivos           & \texttt{+ -}                        \\ \hline
+        Deslocamento       & \texttt{{<}{<} {>}{>}}              \\ \hline
+        Relacionais        & \texttt{< > <= >=}                  \\ \hline
+        Igualdade\textcolor{CustomOrange}{\textbf{*}} & \texttt{== !=(not\_eq)} \\ \hline
+        Lógicos\textcolor{CustomOrange}{\textbf{*}} & \texttt{\&\&(and) ||(or)} \\ \hline
+%        Condicionais       & \texttt{?:}                         \\ \hline
+        \multirow{2}{*}{Atribuição\textcolor{CustomOrange}{\textbf{**}}} & \texttt{= *= /= \%= +=} \\
+                           & \texttt{-= <{<}= >{>}=}             \\ \hline
+      \end{tabular}
+    \end{block}
+
+  \column[t]{0.49\linewidth}
+    \begin{itemize}
+    \item[\textbf{*}] Operadores entre parênteses são \Link[representações~alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative}.
+    \item[\textbf{**}] Uma expressão do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
+    \end{itemize}
+  \end{columns}
 \end{frame}
 
 
@@ -87,7 +123,45 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  \textcolor{red}{TODO}
+  Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a outras linguagens.
+  \begin{columns}[t]
+  \column{0.28\linewidth}
+    \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \column{0.28\linewidth}
+    \inputminted[firstline=1,lastline=6]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \column{0.44\linewidth}
+    \inputminted[firstline=8,lastline=16]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \end{columns}
+% TODO Regras gerais:
+%  \begin{enumerate}
+%    \item 
+%  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  Lembra que quebras de linhas e espaço extra não importam?
+  \begin{columns}[t]
+  \column{0.28\linewidth}
+    \inputminted[firstline=1,lastline=6]{arduino}{sketches/introLinguagem/.condicionais.ino}\vspace{-\bigskipamount}\\
+    \inputminted[firstline=18,lastline=22]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \column{0.28\linewidth}
+    \inputminted[firstline=24,lastline=31]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \column{0.44\linewidth}
+    \inputminted[firstline=33,lastline=39]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  Só não faça assim:
+  \begin{columns}[t]
+  \column{0.5\linewidth}
+    \inputminted[firstline=41,lastline=41]{arduino}{sketches/introLinguagem/.condicionais.ino}\\
+    \includegraphics[width=\linewidth]{memeJackieChan.png}
+  \column{0.5\linewidth}
+    \inputminted[firstline=43,lastline=52]{arduino}{sketches/introLinguagem/.condicionais.ino}
+  \end{columns}
 \end{frame}
 
 

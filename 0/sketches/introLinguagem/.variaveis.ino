@@ -8,7 +8,10 @@ int inteiro = 10;
 inteiro = -10;  @$\leftarrow$ \alert{PODE SIM}@
 
 const String senha = "Fantasma!";
-senha = "Essa é a senha!";       @$\leftarrow$ \alert{NÃO PODE}@
+senha = "Essa é a senha!";  @$\leftarrow$ \alert{NÃO PODE}@
+
+const float pi = 3.1416;
+pi = 3.0;                   @$\leftarrow$ \alert{NÃO PODE}@
 
 auto til = '~';   // char
 

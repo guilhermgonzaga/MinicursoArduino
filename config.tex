@@ -1,6 +1,4 @@
-%\documentclass[unknownkeysallowed]{beamer}
-\documentclass{beamer}
-%\mode<presentation>
+\documentclass[smaller]{beamer} % handout, unknownkeysallowed
 
 
 % PALETA DE CORES ======================
@@ -26,6 +24,13 @@
 \definecolor{alert}{named}{CustomLightOrange}
 \definecolor{example}{named}{CustomBrown}
 
+\setbeamercolor{block title}{bg=main!85!background, fg=background!50!white}
+\setbeamercolor{block body}{bg=main!8!background, fg=main!20!black}
+\setbeamercolor{block title alerted}{bg=alert, fg=background!50!white}
+\setbeamercolor{block body alerted}{bg=alert!8!background, fg=main!30!black}
+\setbeamercolor{block title example}{bg=example, fg=background!50!white}
+\setbeamercolor{block body example}{bg=example!9!background, fg=main!30!black}
+
 \setbeamercolor{normal text}{fg=black, bg=background}
 \setbeamercolor{itemize item}{fg=CustomOrange}
 \setbeamercolor{itemize subitem}{fg=CustomOrange}
@@ -33,7 +38,6 @@
 \setbeamercolor{enumerate subitem}{fg=CustomOrange!90!black}
 \setbeamercolor{description item}{fg=CustomOrange}
 \setbeamercolor{description subitem}{fg=CustomOrange}
-
 \setbeamerfont{footline}{size=\tiny}
 
 \setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
@@ -62,6 +66,7 @@
 \usepackage[brazilian]{babel}
 \usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
 \usepackage[cache=false, section]{minted}
+\usepackage{graphicx}
 \usepackage{multirow}
 
 
@@ -77,7 +82,7 @@
   highlightcolor=CustomYellow!20!white,
   autogobble=true,
   tabsize=2,
-  fontsize=\scriptsize,
+  fontsize=\footnotesize,
   baselinestretch=0.95,
   breaklines=true,
   breakbytoken=true,
@@ -89,8 +94,10 @@
 % COMPORTAMENTO ========================
 
 
+\mode<handout>{\AtBeginSubsection{}}
 \AtBeginSection{}
-
 \AtEndDocument{\FinalFrame}
 
 \graphicspath{{"../imagens/"}{imagens/}} % Diretórios de imagens geral e local, respectivamente.
+
+\renewcommand{\arraystretch}{1.1} % Aumenta o espaçamento entre linhas de tabelas em 10%.
