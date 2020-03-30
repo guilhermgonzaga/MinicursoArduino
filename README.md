@@ -44,16 +44,21 @@ Dê uma olhada em [CONTRIBUTING.md](./CONTRIBUTING.md) para regras e informaçõ
 
 ## Geração dos Slides
 
-Os comandos seguintes devem ser executados no diretório raiz do projeto.
+Os comandos seguintes devem ser executados no diretório raiz do projeto. Lembre-se de gerar duas vezes seguidas quando o diretório estiver limpo, senão algumas referências internas do arquivo, como o sumário, estarão inválidas. Este é um problema comum.
 
 1. Gerar todos os slides:
 	```sh
 	make
 	```
-	Alternativamente, um slide específico pode ser gerado com `make n`, sendo `n` o número da aula (0, 1, 2, ...).
+	É o mesmo que `make all`. Alternativamente, um slide específico pode ser gerado com `make n`, sendo `n` o número da aula (0, 1, 2, ...).
 
 1. Extrair todos os slides criados até então para uma pasta `slides/` no diretório raiz do projeto.
 	```sh
 	make extract
 	```
 	Obs.: slides só serão extraídos se forem mais novos que os já presentes na pasta.
+
+1. Obter uma lista detalhada das opções de comando (nem todos descritos aqui).
+	```sh
+	make help
+	```

@@ -1,4 +1,4 @@
-# Arquivos gerados pelo LaTeX
+# Arquivos temporários
 *.aux
 *.bbl
 *.blg
@@ -9,6 +9,7 @@
 *.lot
 *.nav
 *.out
+*.pyg
 *.snm
 *.tdo
 *.toc

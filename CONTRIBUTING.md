@@ -7,12 +7,15 @@
 
 ## Formatação dos Arquivos de Texto
 
-|Tipo  |Indentação|*Wrapping*|Máx.<br>colunas|
-|:----:|:--------:|:--------:|:-------------:|
-|Geral |2 espaços |*Hard*    |80             |
-|`.ino`|*tabs*    |*Hard*    |70             |
-|`.md` |*tabs*    |*Soft*    |--             |
-|`.tex`|2 espaços |*Soft*    |--             |
+Considere que *tabs* são configuradas para dois espaços.
+
+|Tipo      |Indentação|*Wrapping*|Máx.<br>colunas|
+|:--------:|:--------:|:--------:|:-------------:|
+|Geral     |2 espaços |*Hard*    |80             |
+|`Makefile`|*tabs*    |*Hard*    |80             |
+|`.ino`    |*tabs*    |*Hard*    |70             |
+|`.md`     |*tabs*    |*Soft*    |--             |
+|`.tex`    |2 espaços |*Soft*    |--             |
 
 Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da indentação no pacote Minted.
 
