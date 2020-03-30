@@ -1,5 +1,5 @@
 AULAS:=0 1 2 3
-BUILD:=../Slides
+BUILD:=slides
 
 
 all: .PHONY
@@ -7,9 +7,15 @@ all: .PHONY
 .PHONY: $(AULAS)
 
 $(AULAS):
-	@cd $@ && pdflatex.exe -synctex=1 -shell-escape -enable-write18 -interaction=nonstopmode $@.tex
+	@cd $@ && \
+	pdflatex.exe -synctex=1 -shell-escape -enable-write18 -interaction=nonstopmode $@.tex
 
 clean: # TODO
 
-extract: # TODO adapt Powershell code below
-	# powershell -NonInteractive "Get-ChildItem . -Recurse -Filter '*.pdf' | Copy-Item -PassThru -Destination '$project_path\Slides\' | Select-Object -Property Name,LastWriteTime"
+extract:
+	@mkdir --parents --verbose $(BUILD)
+	@for aula in $(AULAS); do                                     \
+		if [ -f "$${aula}/$${aula}.pdf" ]; then                     \
+			cp -u -v "$${aula}/$${aula}.pdf" "$(BUILD)/$${aula}.pdf"; \
+		fi;                                                         \
+	done

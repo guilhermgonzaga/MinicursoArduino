@@ -1,8 +1,9 @@
 # Guia de contribuição
 
 1. Estenda o arquivo `.gitattributes` com novas extensões de arquivos binários que porventura inclua no repositório.
+1. Caso inclua novas aulas, declare as mudanças nos arquivos `.gitignore` e `Makefile`.
+1. Os arquivos PDF gerados de cada aula não serão versionados.
 1. Siga o padrão visual dos slides.
-
 
 ## Formatação dos Arquivos de Texto
 
