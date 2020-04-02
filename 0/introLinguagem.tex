@@ -79,7 +79,7 @@
   \inputminted[firstline=16,lastline=20]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   \pause
-  Mas cuidado com o tipo \textbf{\texttt{\textcolor{CustomOrange}{String}}}.
+  Só tenha cuidado com o tipo \textbf{\texttt{\textcolor{CustomOrange}{String}}}.
   \inputminted[firstline=22,lastline=26]{arduino}{sketches/introLinguagem/.variaveis.ino}
 \end{frame}
 
@@ -89,31 +89,34 @@
 
 \begin{frame}{\insertsection: \insertsubsection}
   \begin{columns}
-  \column{0.51\linewidth}
+  \column[b]{0.51\linewidth}
     \begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
-      \centering
       \begin{tabular}{|c|l|}                                        \hline
         \textbf{Categoria} & \textbf{Operador}                   \\ \hline
         Pós-fixados        & \multirow{2}{*}{\texttt{++ {-}{-}}} \\
         (unários)          &                                     \\ \hline
-        Prefixados         & \texttt{++ {-}{-} + -} \\
-        (unários)          & \texttt{!(not)}                    \\ \hline
-        Multiplicativos    & \texttt{* / \%}                     \\ \hline
+        Prefixados         & \texttt{++ {-}{-} + -}              \\
+        (unários)          & \texttt{(\textbf{\textcolor{CustomTeal}{tipo}}) !}          \\ \hline
+        Multiplicativos\textcolor{CustomOrange}{\textbf{*}} & \texttt{* / \%} \\ \hline
         Aditivos           & \texttt{+ -}                        \\ \hline
         Deslocamento       & \texttt{{<}{<} {>}{>}}              \\ \hline
         Relacionais        & \texttt{< > <= >=}                  \\ \hline
-        Igualdade\textcolor{CustomOrange}{\textbf{*}} & \texttt{== !=(not\_eq)} \\ \hline
-        Lógicos\textcolor{CustomOrange}{\textbf{*}} & \texttt{\&\&(and) ||(or)} \\ \hline
+        Igualdade          & \texttt{== !=}                      \\ \hline
+        Lógicos            & \texttt{\&\& ||}                    \\ \hline
 %        Condicionais       & \texttt{?:}                         \\ \hline
         \multirow{2}{*}{Atribuição\textcolor{CustomOrange}{\textbf{**}}} & \texttt{= *= /= \%= +=} \\
                            & \texttt{-= <{<}= >{>}=}             \\ \hline
       \end{tabular}
     \end{block}
 
-  \column[t]{0.49\linewidth}
+  \column[b]{0.49\linewidth}
     \begin{itemize}
-    \item[\textbf{*}] Operadores entre parênteses são \Link[representações~alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative}.
-    \item[\textbf{**}] Uma expressão do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
+    \item Existem também \Link[representações~alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative}.\\
+    \texttt{~!~$\Longleftrightarrow$~not}\\
+    \texttt{\&\&~$\Longleftrightarrow$~and}\\
+    \texttt{||~$\Longleftrightarrow$~or}\smallskip\\
+    \item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} em inteiros e \textbf{real} em ponto flutuante.
+    \item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -123,7 +126,7 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a outras linguagens.
+  Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a de outras linguagens.
   \begin{columns}[t]
   \column{0.28\linewidth}
     \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.condicionais.ino}
@@ -132,17 +135,12 @@
   \column{0.44\linewidth}
     \inputminted[firstline=8,lastline=16]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \end{columns}
-% TODO Regras gerais:
-%  \begin{enumerate}
-%    \item Quantas ações quiser
-%    \item Chaves, não indentação
-%    \item 
-%  \end{enumerate}
+  Note que não é a indentação que define o corpo do \textit{if}, mas sim as chaves.
 \end{frame}
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  Lembra que quebras de linhas e espaço extra não importam?
+  Lembra que quebras de linha e espaço extra não fazem diferença?
   \begin{columns}[t]
   \column{0.28\linewidth}
     \inputminted[firstline=1,lastline=6]{arduino}{sketches/introLinguagem/.condicionais.ino}\vspace{-\bigskipamount}\\
@@ -156,7 +154,7 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  Só não faça assim:
+  Só não faça algo assim:
   \begin{columns}[t]
   \column{0.5\linewidth}
     \inputminted[firstline=41,lastline=41]{arduino}{sketches/introLinguagem/.condicionais.ino}\\
@@ -172,6 +170,7 @@
 
 \begin{frame}{\insertsection: \insertsubsection}
   \textcolor{red}{TODO}
+  %Como seria um \textit{for} sobre as potências de 2? E de x?
 \end{frame}
 
 
