@@ -5,20 +5,22 @@
 1. Os arquivos PDF gerados de cada aula não serão versionados.
 1. Siga o padrão visual dos slides.
 
+<br>
+
 ## Formatação dos Arquivos de Texto
 
 Considere que *tabs* são configuradas para dois espaços.
 
 |Tipo      |Indentação|*Wrapping*|Máx.<br>colunas|
 |:--------:|:--------:|:--------:|:-------------:|
-|Geral     |2 espaços |*Hard*    |80             |
-|`Makefile`|*tabs*    |*Hard*    |80             |
 |`.ino`    |*tabs*    |*Hard*    |70             |
 |`.md`     |*tabs*    |*Soft*    |--             |
 |`.tex`    |2 espaços |*Soft*    |--             |
+|Outros    |--        |*Hard*    |80             |
 
 Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da indentação no pacote Minted.
 
+<br>
 
 ## Paleta de Cores
 
@@ -34,3 +36,14 @@ Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da inde
 |`#ECF1F1`|![#ECF1F1](https://placehold.it/15/ECF1F1/000000?text=+)|CustomLightGrey  |
 |`#F29C2D`|![#F29C2D](https://placehold.it/15/F29C2D/000000?text=+)|CustomLightOrange|
 |`#62AEB2`|![#62AEB2](https://placehold.it/15/62AEB2/000000?text=+)|CustomLightTeal  |
+
+<br>
+
+## TODO
+
+As melhorias listadas serão bem-vindas.
+
+- [ ] Introdução à estrutura `switch` na aula 0, com arquivo de exemplos próprio na pasta `sketches/introLinguagem`.
+- [ ] Regra em `Makefile` para verificar com Arduino CLI se todos os *sketches* compilam.
+- [ ] Forma de copiar trechos de código dos slides sem perder a formatação.
+- [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para garantir uma convenção de estilo (a definir) do código LaTeX.
