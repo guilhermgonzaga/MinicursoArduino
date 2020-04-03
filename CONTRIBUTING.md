@@ -44,6 +44,7 @@ Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da inde
 As melhorias listadas serão bem-vindas.
 
 - [ ] Introdução à estrutura `switch` na aula 0, com arquivo de exemplos próprio na pasta `sketches/introLinguagem`.
+- [ ] Introdução à estrutura `do while` na aula 0, com arquivo de exemplos próprio na pasta `sketches/introLinguagem`.
 - [ ] Regra em `Makefile` para verificar com Arduino CLI se todos os *sketches* compilam.
 - [ ] Forma de copiar trechos de código dos slides sem perder a formatação.
 - [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para garantir uma convenção de estilo (a definir) do código LaTeX.

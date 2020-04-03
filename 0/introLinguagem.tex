@@ -129,9 +129,9 @@
   Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a de outras linguagens.
   \begin{columns}[t]
   \column{0.28\linewidth}
-    \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.28\linewidth}
-    \inputminted[firstline=1,lastline=6]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.44\linewidth}
     \inputminted[firstline=8,lastline=16]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \end{columns}
@@ -143,7 +143,7 @@
   Lembra que quebras de linha e espaço extra não fazem diferença?
   \begin{columns}[t]
   \column{0.28\linewidth}
-    \inputminted[firstline=1,lastline=6]{arduino}{sketches/introLinguagem/.condicionais.ino}\vspace{-\bigskipamount}\\
+    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}\vspace{-\bigskipamount}\\
     \inputminted[firstline=18,lastline=22]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.28\linewidth}
     \inputminted[firstline=24,lastline=31]{arduino}{sketches/introLinguagem/.condicionais.ino}
@@ -169,8 +169,41 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  \textcolor{red}{TODO}
-  %Como seria um \textit{for} sobre as potências de 2? E de x?
+  \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.while.ino}
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  A estrutura de um laço \textit{for} é a seguinte.
+  \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.for.ino}
+
+  O laço \textit{while} equivalente é assim:
+  \inputminted[firstline=05,lastline=10]{arduino}{sketches/introLinguagem/.while.ino}
+
+%  Normalmente a inicialização é uma atribuição a variável.
+  A inicialização pode incluir ou não uma \textbf{declaração}.
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  Se houver declaração, cria-se uma variável visível somente dentro do laço.
+  \inputminted[firstline=05,lastline=07]{arduino}{sketches/introLinguagem/.for.ino}
+
+  Se não houver, usa-se uma variável já instanciada (precisa existir).
+  \inputminted[firstline=09,lastline=14]{arduino}{sketches/introLinguagem/.for.ino}
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  Exemplos:
+  \begin{columns}
+  \column{0.5\linewidth}
+    \inputminted[firstline=16,lastline=18]{arduino}{sketches/introLinguagem/.for.ino}
+  \column{0.5\linewidth}
+    \inputminted[firstline=20,lastline=22]{arduino}{sketches/introLinguagem/.for.ino}
+  \end{columns}
+%  \pause
+  Respondam: como seria um \textit{for} iterando as potências de 2?
 \end{frame}
 
 
