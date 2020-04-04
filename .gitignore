@@ -11,6 +11,7 @@
 *.out
 *.pyg
 *.snm
+*.synctex*
 *.tdo
 *.toc
 *.xml
