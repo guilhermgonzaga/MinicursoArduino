@@ -1,22 +1,34 @@
-for (@\textbf{\textcolor{CustomOrange}{inicialização}}@; @\textbf{\textcolor{CustomOrange}{condição}}@; @\textbf{\textcolor{CustomOrange}{passo}}@) {
+for (@\HighlightSpecial{inicialização}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
 	ações;
 }
 
-for (@\textcolor{CustomTeal}{tipo}@ nome = @\textbf{\textcolor{CustomBrown}{valor\_inicial}}@; @\textbf{\textcolor{CustomOrange}{condição}}@; @\textbf{\textcolor{CustomOrange}{passo}}@) {
+for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
 	ações;
 }
 
-@\textcolor{CustomTeal}{tipo}@ nome;
+@\HighlightType{tipo}@ nome;
 ...
 
-for (nome = @\textbf{\textcolor{CustomBrown}{valor\_inicial}}@; @\textbf{\textcolor{CustomOrange}{condição}}@; @\textbf{\textcolor{CustomOrange}{passo}}@) {
-	ações;
-}
-
-for (i = 0; i < n; i++) {
+for (nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
 	ações;
 }
 
 for (int i = 0; i < n; i++) {
+	ações;
+}
+
+for (int i = n; i > 0; i--) {
+	ações;
+}
+
+for (int i = 0; i < n; i += 2) {
+	ações;
+}
+
+for (int i = 1; i < n; i += 2) {
+	ações;
+}
+
+for (int i = 1; i < n; i *= 2) {
 	ações;
 }

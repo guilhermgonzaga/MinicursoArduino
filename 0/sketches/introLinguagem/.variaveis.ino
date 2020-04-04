@@ -1,5 +1,5 @@
-@\textcolor{CustomTeal}{\textbf{tipo}}@ identificador;
-@\textcolor{CustomTeal}{\textbf{tipo}}@ identificador = @\textcolor{CustomBrown}{valor\_inicial}@;
+@\HighlightType{tipo}@ identificador;
+@\HighlightType{tipo}@ identificador = @\HighlightInit{valor\_inicial}@;
 
 unsigned int natural = 10;
 natural = -10;  @$\leftarrow$ \alert{NÃO PODE}@

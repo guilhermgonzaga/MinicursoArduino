@@ -1,10 +1,10 @@
-while (@\textbf{\textcolor{CustomOrange}{condição}}@) {
+while (@\HighlightSpecial{condição}@) {
 	ações;
 }
 
-@\textbf{\textcolor{CustomOrange}{inicialização}}@;
+@\HighlightSpecial{inicialização}@;
 
-while (@\textbf{\textcolor{CustomOrange}{condição}}@) {
+while (@\HighlightSpecial{condição}@) {
 	ações;
-	@\textbf{\textcolor{CustomOrange}{passo}}@;
+	@\HighlightSpecial{passo}@;
 }

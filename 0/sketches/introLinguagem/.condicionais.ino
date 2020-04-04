@@ -1,27 +1,27 @@
-if (condição) {
+if (@\HighlightSpecial{condição}@) {
 	ações;
 }
 else {
 	ações;
 }
 
-if (condição) {
+if (@\HighlightSpecial{condição}@) {
 	ações;
 }
-else if (outra condição) {
+else if (@\HighlightSpecial{outra condição}@) {
 	ações;
 }
 else {
 	ações;
 }
 
-if (condição) {
+if (@\HighlightSpecial{condição}@) {
 	ações;
 } else {
 	ações;
 }
 
-if (condição)
+if (@\HighlightSpecial{condição}@)
 {
 	ações;
 }
@@ -30,21 +30,21 @@ else
 	ações;
 }
 
-if (condição) {
+if (@\HighlightSpecial{condição}@) {
 	ações;
-} else if (outra condição) {
+} else if (@\HighlightSpecial{outra condição}@) {
 	ações;
 } else {
 	ações;
 }
 
-if(condição){ações;}else{ações;}
+if(@\HighlightSpecial{condição}@){ações;}else{ações;}
 
-if(condição) {
+if(@\HighlightSpecial{condição}@) {
 	ações;
 }
 else
-if (outra condição)
+if (@\HighlightSpecial{outra condição}@)
 {
 	ações;
 } else {
