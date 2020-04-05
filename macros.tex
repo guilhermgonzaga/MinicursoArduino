@@ -4,7 +4,7 @@
 \newcommand{\Email}[1]{\href{mailto:#1}{\texttt{#1}}}
 
 \newcommand{\Link}[2][] % Macro para URLs; parâmetro opcional é o texto do hyperlink
-  {\href{#2}{\textcolor{CustomTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
+	{\href{#2}{\textcolor{CustomTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
 
 
 % COLORAÇÃO DE SINTAXE =================
@@ -27,17 +27,17 @@
 
 \newcommand{\FinalFrame}{%% Último frame de cada apresentação predefinido
 \begin{frame}[focus,b]{Por enquanto é só}\centering
-  \begin{columns}[c,onlytextwidth]
-  \column{0.7\linewidth}
-    Por enquanto é só.
-  \column{0.3\linewidth}
-    \begin{alertblock}{Material:}
-      \medskip
-      \href{https://github.com/guilhermgonzaga/MinicursoArduino}%
-        {\includegraphics[width=\linewidth]{qrGithub}}
-    \end{alertblock}
-  \end{columns}
-  \vfill
-  {\scriptsize \doclicenseThis}
+	\begin{columns}[c,onlytextwidth]
+	\column{0.7\linewidth}
+		Por enquanto é só.
+	\column{0.3\linewidth}
+		\begin{alertblock}{Material:}
+			\medskip
+			\href{https://github.com/guilhermgonzaga/MinicursoArduino}%
+				{\includegraphics[width=\linewidth]{qrGithub}}
+		\end{alertblock}
+	\end{columns}
+	\vfill
+	{\scriptsize \doclicenseThis}
 \end{frame}%
 }

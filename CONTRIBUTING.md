@@ -11,12 +11,11 @@
 
 Considere que *tabs* são configuradas para dois espaços.
 
-|Tipo      |Indentação|*Wrapping*|Máx.<br>colunas|
-|:--------:|:--------:|:--------:|:-------------:|
-|`.ino`    |*tabs*    |*Hard*    |70             |
-|`.md`     |*tabs*    |*Soft*    |--             |
-|`.tex`    |2 espaços |*Soft*    |--             |
-|Outros    |--        |*Hard*    |80             |
+|Tipo           |Indentação|*Wrapping*|Máx.<br>colunas|
+|:-------------:|:--------:|:--------:|:-------------:|
+|`.md`<br>`.tex`|*tabs*    |*Soft*    |--             |
+|`.ino`         |*tabs*    |*Hard*    |70             |
+|Outros         |--        |*Hard*    |80             |
 
 Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da indentação no pacote Minted.
 
@@ -48,3 +47,18 @@ As melhorias listadas serão bem-vindas.
 - [ ] Regra em `Makefile` para verificar com Arduino CLI se todos os *sketches* compilam.
 - [ ] Forma de copiar trechos de código dos slides sem perder a formatação.
 - [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para aplicar uma convenção de estilo (a definir) ao código LaTeX.
+
+<br>
+
+## Problemas Comuns
+
+1. A compilação falha com a mensagem:
+
+	> Paragraph ended before \FV@BeginScanning was complete. \end{frame}
+
+	Se há um exemplo de código neste *frame*, então deve ser pela falta do atributo *fragile*. Como o Minted usa ambientes *verbatim*, essa declaração é necessária. Corrija assim:
+	```latex
+	\begin{frame}[fragile]{Título}
+	...
+	\end{frame}
+	```
