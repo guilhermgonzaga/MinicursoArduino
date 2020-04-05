@@ -13,9 +13,9 @@
     \bigskip
     Diferenças claras entre C++ e Python:
     \begin{enumerate}
-    \item Todo comando termina com ponto e vírgula.
-    \item Quebras de linha e espaços extras não fazem diferença. Portanto, lembre-se que há vários estilos para se usar. Só não faça algo ilegível ou inconsistente.
-    \item É preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.
+      \item Todo comando termina com ponto e vírgula.
+      \item Quebras de linha e espaços extras não fazem diferença. Portanto, lembre-se que há vários estilos para se usar. Só não faça algo ilegível ou inconsistente.
+      \item É preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.
     \end{enumerate}%
   }
 \end{frame}
@@ -24,12 +24,18 @@
 \subsection{Tipos e variáveis}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
   Variáveis são declaradas da seguinte forma.
-  \inputminted[firstline=1,lastline=1]{arduino}{sketches/introLinguagem/.variaveis.ino}
+  \begin{minted}{arduino}
+    @\HighlightType{tipo}@ identificador;
+  \end{minted}
+%  \inputminted[firstline=1,lastline=1]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   Também é possível inicializar uma variável na declaração.
-  \inputminted[firstline=2,lastline=2]{arduino}{fsketches/introLinguagem/.variaveis.ino}
+  \begin{minted}{arduino}
+    @\HighlightType{tipo}@ identificador = @\HighlightInit{valor\_inicial}@;
+  \end{minted}
+%  \inputminted[firstline=2,lastline=2]{arduino}{fsketches/introLinguagem/.variaveis.ino}
 \end{frame}
 
 
@@ -37,50 +43,80 @@
   Estes tipos são suficientes para o minicurso.
 
   \begin{description}
-    \item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}; também chamado \textbf{\texttt{\textcolor{CustomOrange}{boolean}}}
+    \item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}; também chamado \texttt{\HighlightSpecial{boolean}}
     \item[\texttt{char}] inteiros de 8 bits
     \item[\texttt{byte}] inteiros não negativos de 8 bits
 %    \item[\texttt{short}] inteiros de 16 bits
     \item[\texttt{int}] inteiros de 16 bits
 %    \item[\texttt{word}] inteiros não negativos de 16 bits
     \item[\texttt{long}] inteiros de 32 bits
-    \item[\texttt{float}] ponto flutuante de 32 bits; equivale a \textbf{\texttt{\textcolor{CustomOrange}{double}}}
+    \item[\texttt{float}] ponto flutuante de 32 bits; equivale a \texttt{\HighlightSpecial{double}}
     \item[\texttt{String}] texto
-    \item[\texttt{void}] tipo que significa "nada"; variáveis não podem ter esse tipo
+    \item[\texttt{void}] tipo que significa "nada"; variáveis não podem ser deste tipo
     \item[\texttt{...}] \textit{tipos específicos para cada módulo}
   \end{description}
 
   \vfill
-  \textbf{Obs.:} esses tamanhos são referentes ao Mega 2560 e \textbf{são diferentes} em outras plataformas.
+  \textbf{Obs.:} essas informações são referentes ao ATmega2560 e \textbf{são diferentes} em outras plataformas.
 \end{frame}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
-  Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \textbf{\texttt{\textcolor{CustomOrange}{unsigned}}}.
-  \inputminted[firstline=4,lastline=8]{arduino}{sketches/introLinguagem/.variaveis.ino}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \texttt{\HighlightSpecial{unsigned}}.
+  \begin{minted}{arduino}
+    unsigned int natural = 10;
+    natural = -10;  @$\leftarrow$ \alert{NÃO PODE}@
+
+    int inteiro = 10;
+    inteiro = -10;  @$\leftarrow$ \alert{PODE SIM}@
+  \end{minted}
+%  \inputminted[firstline=4,lastline=8]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   \pause
-  Respondam: que tipo é equivalente a \textbf{\texttt{\textcolor{CustomOrange}{unsigned~char}}}?\\
-  \only<0|handout:2>{R: \textbf{\texttt{\textcolor{CustomOrange}{byte}}}}
+  \bigskip
+  Respondam: que tipo é equivalente a \texttt{\HighlightSpecial{unsigned~char}}?\\
+  \only<0|handout:2>{R: \texttt{\HighlightSpecial{byte}}}
 \end{frame}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
-  Quando não se quer que o valor duma variável mude, pode-se usar o modificador \textbf{\texttt{\textcolor{CustomOrange}{const}}}.
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Quando não se quer que o valor duma variável mude, pode-se usar o modificador \texttt{\HighlightSpecial{const}}.
+  \begin{minted}{arduino}
+    const String senha = "Fantasma!";
+    senha = "Essa é a senha!";  @$\leftarrow$ \alert{NÃO PODE}@
 
-  \inputminted[firstline=10,lastline=14]{arduino}{sketches/introLinguagem/.variaveis.ino}
+    const float pi = 3.1416;
+    pi = 3.0;                   @$\leftarrow$ \alert{NÃO PODE}@
+  \end{minted}
+
+%  \inputminted[firstline=10,lastline=14]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
 \end{frame}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
-  Se não entendeu direito, use o especificador \textbf{\texttt{\textcolor{CustomOrange}{auto}}} e deixe que o compilador adivinhe os tipos para você!
-  \inputminted[firstline=16,lastline=20]{arduino}{sketches/introLinguagem/.variaveis.ino}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Se não entendeu direito, use o especificador \texttt{\HighlightSpecial{auto}} e deixe que o compilador adivinhe os tipos para você!
+  \begin{minted}{arduino}
+    auto til = '~';   // char
+
+    auto dez = 10;    // int
+
+    auto phi = 1.618; // double
+  \end{minted}
+%  \inputminted[firstline=16,lastline=20]{arduino}{sketches/introLinguagem/.variaveis.ino}
 
   \pause
-  Só tenha cuidado com o tipo \textbf{\texttt{\textcolor{CustomOrange}{String}}}.
-  \inputminted[firstline=22,lastline=26]{arduino}{sketches/introLinguagem/.variaveis.ino}
+  \bigskip
+  Só tenha cuidado com o tipo \texttt{\HighlightSpecial{String}}.
+  \begin{minted}{arduino}
+    String mensagem = "Programar é bacana!";        @$\leftarrow$ \alert{NORMAL}@
+
+    auto mensagem = String("Programar é bacana!");  @$\leftarrow$ \alert{PODE SER}@
+
+    auto mensagem = "Programar é bacana!";          @$\leftarrow$ \alert{MELHOR NÃO}@
+  \end{minted}
+%  \inputminted[firstline=22,lastline=26]{arduino}{sketches/introLinguagem/.variaveis.ino}
 \end{frame}
 
 
@@ -88,28 +124,29 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
-  \begin{columns}
-  \column[b]{0.51\linewidth}
+  \begin{columns}[b]
+  \column{0.51\linewidth}
     \begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
-      \begin{tabular}{|c|l|}                                        \hline
-        \textbf{Categoria} & \textbf{Operador}                   \\ \hline
-        Pós-fixados        & \multirow{2}{*}{\texttt{++ {-}{-}}} \\
-        (unários)          &                                     \\ \hline
-        Prefixados         & \texttt{++ {-}{-} + -}              \\
-        (unários)          & \texttt{(\textbf{\textcolor{CustomTeal}{tipo}}) !}          \\ \hline
-        Multiplicativos\textcolor{CustomOrange}{\textbf{*}} & \texttt{* / \%} \\ \hline
-        Aditivos           & \texttt{+ -}                        \\ \hline
-        Deslocamento       & \texttt{{<}{<} {>}{>}}              \\ \hline
-        Relacionais        & \texttt{< > <= >=}                  \\ \hline
-        Igualdade          & \texttt{== !=}                      \\ \hline
-        Lógicos            & \texttt{\&\& ||}                    \\ \hline
-%        Condicionais       & \texttt{?:}                         \\ \hline
-        \multirow{2}{*}{Atribuição\textcolor{CustomOrange}{\textbf{**}}} & \texttt{= *= /= \%= +=} \\
-                           & \texttt{-= <{<}= >{>}=}             \\ \hline
+      \begin{tabular}{cl}
+%        \textbf{Categoria} & \textbf{Operadores}                 \\ \hline
+        Pós-fixados  & \multirow{2}{*}{\texttt{++ {-}{-}}}        \\
+        (unários)    &                                            \\ \hline
+        Prefixados   & \texttt{++ {-}{-} + -}                     \\
+        (unários)    & \texttt{(\textbf{\HighlightType{tipo}}) !} \\ \hline
+        Multiplicativos\HighlightSpecial{*} & \texttt{* / \%}     \\ \hline
+        Aditivos     & \texttt{+ -}                               \\ \hline
+        Deslocamento & \texttt{{<}{<} {>}{>}}                     \\ \hline
+        Relacionais  & \texttt{< > <= >=}                         \\ \hline
+        Igualdade    & \texttt{== !=}                             \\ \hline
+        Bit-a-bit    & \texttt{\& | $\wedge$}                     \\ \hline
+        Lógicos      & \texttt{\&\& ||}                           \\ \hline
+%        Condicionais & \texttt{?:}                                \\ \hline
+        \multirow{2}{*}{Atribuição\HighlightSpecial{**}} & \texttt{= *= /= \%= +=} \\
+                     & \texttt{-= <{<}= >{>}=}                    \\ %\hline
       \end{tabular}
     \end{block}
 
-  \column[b]{0.49\linewidth}
+  \column{0.49\linewidth}
     \begin{itemize}
     \item Existem também \Link[representações~alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative}.\\
     \texttt{~!~$\Longleftrightarrow$~not}\\
@@ -125,91 +162,344 @@
 \subsection{Condicionais}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
   Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a de outras linguagens.
   \begin{columns}[t]
   \column{0.28\linewidth}
-    \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@) {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.28\linewidth}
-    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@) {
+      	ações;
+      }
+      else {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.44\linewidth}
-    \inputminted[firstline=8,lastline=16]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@) {
+      	ações;
+      }
+      else if (@\HighlightSpecial{outra condição}@) {
+      	ações;
+      }
+      else {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=8,lastline=16]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \end{columns}
   Note que não é a indentação que define o corpo do \textit{if}, mas sim as chaves.
 \end{frame}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
   Lembra que quebras de linha e espaço extra não fazem diferença?
   \begin{columns}[t]
   \column{0.28\linewidth}
-    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}\vspace{-\bigskipamount}\\
-    \inputminted[firstline=18,lastline=22]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@)
+      {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=01,lastline=06]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \vspace{-\bigskipamount}\\
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@) {
+      	ações;
+      } else {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=18,lastline=22]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.28\linewidth}
-    \inputminted[firstline=24,lastline=31]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@)
+      {
+      	ações;
+      }
+      else
+      {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=24,lastline=31]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \column{0.44\linewidth}
-    \inputminted[firstline=33,lastline=39]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if (@\HighlightSpecial{condição}@) {
+      	ações;
+      } else if (@\HighlightSpecial{outra condição}@) {
+      	ações;
+      } else {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=33,lastline=39]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \end{columns}
 \end{frame}
 
 
-\begin{frame}{\insertsection: \insertsubsection}
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
   Só não faça algo assim:
   \begin{columns}[t]
   \column{0.5\linewidth}
-    \inputminted[firstline=41,lastline=41]{arduino}{sketches/introLinguagem/.condicionais.ino}\\
+    \begin{minted}{arduino}
+      if(@\HighlightSpecial{condição}@){ações;}else{ações;}
+    \end{minted}
+%    \inputminted[firstline=41,lastline=41]{arduino}{sketches/introLinguagem/.condicionais.ino}\\
     \includegraphics[width=\linewidth]{memeJackieChan.png}
   \column{0.5\linewidth}
-    \inputminted[firstline=43,lastline=52]{arduino}{sketches/introLinguagem/.condicionais.ino}
+    \begin{minted}{arduino}
+      if(@\HighlightSpecial{condição}@) {
+      	ações;
+      }
+      else
+      if (@\HighlightSpecial{outra condição}@)
+      {
+      	ações;
+      } else {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=43,lastline=52]{arduino}{sketches/introLinguagem/.condicionais.ino}
   \end{columns}
-\end{frame}
-
-
-\subsection{Laços}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-  \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.while.ino}
-\end{frame}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-  A estrutura de um laço \textit{for} é a seguinte.
-  \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.for.ino}
-
-  O laço \textit{while} equivalente é assim:
-  \inputminted[firstline=05,lastline=10]{arduino}{sketches/introLinguagem/.while.ino}
-
-%  Normalmente a inicialização é uma atribuição a variável.
-  A inicialização pode incluir ou não uma \textbf{declaração}.
-\end{frame}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-  Se houver declaração, cria-se uma variável visível somente dentro do laço.
-  \inputminted[firstline=05,lastline=07]{arduino}{sketches/introLinguagem/.for.ino}
-
-  Se não houver, usa-se uma variável já instanciada (precisa existir).
-  \inputminted[firstline=09,lastline=14]{arduino}{sketches/introLinguagem/.for.ino}
-\end{frame}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-  Exemplos:
-  \begin{columns}
-  \column{0.5\linewidth}
-    \inputminted[firstline=16,lastline=18]{arduino}{sketches/introLinguagem/.for.ino}
-  \column{0.5\linewidth}
-    \inputminted[firstline=20,lastline=22]{arduino}{sketches/introLinguagem/.for.ino}
-  \end{columns}
-%  \pause
-  Respondam: como seria um \textit{for} iterando as potências de 2?
 \end{frame}
 
 
 \subsection{Funções}
 
 
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Funções são definidas da seguinte forma.
+  \begin{minted}{arduino}
+    @\HighlightType{tipo\_de\_retorno}@ nome(@\HighlightSpecial{parâmetros}@) {
+    	ações;
+    	return @\HighlightSpecial{resultado}@;
+    }
+  \end{minted}
+%  \inputminted[firstline=1,lastline=4]{arduino}{sketches/introLinguagem/.funcoes.ino}
+
+  \begin{itemize}
+    \item Parâmetros são variáveis declaradas separadas por vírgulas.
+    \item Se não houver parâmetros, pode-se deixar os parênteses vazios ou escrever \texttt{\textbf{void}}, tanto faz.
+    \item O tipo de retorno da função é o tipo do \HighlightSpecial{resultado} retornado com o comando \texttt{\textbf{return}}.
+    \item Se a função não retorna nada, então seu tipo de retorno é \texttt{\textbf{void}} e pode-se omitir o comando \texttt{\textbf{return}}.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Exemplos:
+  \begin{minted}{arduino}
+    void setup() {
+
+    }
+
+    void loop() {
+
+    }
+  \end{minted}
+%  \inputminted[firstline=38,lastline=44]{arduino}{sketches/introLinguagem/.funcoes.ino}
+
+  Todo programa para Arduino precisa definir estas duas funções.
+  \begin{description}
+    \item[\texttt{setup}] é executada uma só vez, logo no início.
+    \item[\texttt{loop}] é executada repetidamente após \texttt{\HighlightSpecial{setup}} retornar.
+  \end{description}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Exemplos (inventados):
+  \begin{columns}[t]
+  \column{0.5\linewidth}
+    \begin{minted}{arduino}
+      long maior(long a, long b) {
+      	if (a > b) {
+      		return a;
+      	}
+      	else {
+      		return b;
+      	}
+      }
+    \end{minted}
+%    \inputminted[firstline=06,lastline=13]{arduino}{sketches/introLinguagem/.funcoes.ino}
+  \column{0.5\linewidth}
+    \begin{minted}{arduino}
+      float media(float a, float b) {
+      	return (a + b) / 2;
+      }
+    \end{minted}
+%    \inputminted[firstline=15,lastline=17]{arduino}{sketches/introLinguagem/.funcoes.ino}
+    \vspace{-\bigskipamount}\\
+    \begin{minted}{arduino}
+      void troca(int& a, int& b) {
+      	int aux = a;
+      	a = b;
+      	b = aux;
+      }
+    \end{minted}
+%    \inputminted[firstline=19,lastline=23]{arduino}{sketches/introLinguagem/.funcoes.ino}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Exemplos (inventados):
+  \begin{minted}{arduino}
+    /* Descrição: verifica se <usuario> e <senha> são válidos.
+     * Retorna:   true caso as credenciais sejam válidas;
+     *            false caso contrário.
+     */
+    bool checa_credenciais(String usuario, String senha) {
+    	if (@\HighlightSpecial{usuario existe}@ && @\HighlightSpecial{senha correta}@) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+  \end{minted}
+%  \inputminted[firstline=25,lastline=36]{arduino}{sketches/introLinguagem/.funcoes.ino}
+\end{frame}
+
+
+\subsection{Utilidades do Arduino}
+
+
 \begin{frame}{\insertsection: \insertsubsection}
-  \textcolor{red}{TODO}
+  A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt/} descreve todas.
+%  As seguintes são as mais úteis.
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Configura o pino especificado para funcionar como entrada ou saída.
+  \begin{minted}{arduino}
+    void pinMode(byte pin, byte mode);
+  \end{minted}
+
+  O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
+  \begin{description}
+    \item[\texttt{INPUT}] modo para entrada.
+%    \item[\texttt{INPUT\_PULLUP}] modo para entrada com resistor de pull-up interno.
+    \item[\texttt{OUTPUT}] modo para saída.
+  \end{description}
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+  Também há várias constantes definidas para nos ajudar.
+  \begin{description}
+    \item[\texttt{HIGH}] nível lógico alto
+    \item[\texttt{LOW}] nível lógico baixo
+  \end{description}
+\end{frame}
+
+
+\subsection{Laços}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  A estrutura \textit{while} funciona como a de outras linguagens: ações dentro do laço são repetidas enquanto a condição for verdadeira.
+  \begin{minted}{arduino}
+    while (@\HighlightSpecial{condição}@) {
+    	ações;
+    }
+  \end{minted}
+%  \inputminted[firstline=1,lastline=3]{arduino}{sketches/introLinguagem/.while.ino}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  A estrutura de um laço \textit{for} é esta:
+  \begin{minted}{arduino}
+    for (@\HighlightSpecial{inicialização}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+    	ações;
+    }
+  \end{minted}
+%  \inputminted[firstline=01,lastline=03]{arduino}{sketches/introLinguagem/.for.ino}
+  e equivale a este \textit{while}:
+  \begin{minted}{arduino}
+    @\HighlightSpecial{inicialização}@;
+
+    while (@\HighlightSpecial{condição}@) {
+    	ações;
+    	@\HighlightSpecial{passo}@;
+    }
+  \end{minted}
+%  \inputminted[firstline=05,lastline=10]{arduino}{sketches/introLinguagem/.while.ino}
+
+  A inicialização pode incluir ou não uma \textbf{declaração} de variável.
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Se houver declaração, cria-se uma variável visível somente dentro do laço.
+  \begin{minted}{arduino}
+    for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+    	ações;
+    }
+  \end{minted}
+%  \inputminted[firstline=05,lastline=07]{arduino}{sketches/introLinguagem/.for.ino}
+
+  Se não houver, usa-se uma variável já declarada (precisa existir).
+  \begin{minted}{arduino}
+    @\HighlightType{tipo}@ nome;
+
+    // ...
+
+    for (nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+    	ações;
+    }
+  \end{minted}
+%  \inputminted[firstline=09,lastline=14]{arduino}{sketches/introLinguagem/.for.ino}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+  Exemplos:
+  \begin{columns}
+  \column{0.5\linewidth}
+    \begin{minted}{arduino}
+      for (int i = 0; i < n; i++) {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=16,lastline=18]{arduino}{sketches/introLinguagem/.for.ino}
+    \begin{minted}{arduino}
+      for (int i = n; i > 0; i--) {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=20,lastline=22]{arduino}{sketches/introLinguagem/.for.ino}
+  \column{0.5\linewidth}
+    \begin{minted}{arduino}
+      for (int i = 0; i < n; i += 2) {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=24,lastline=26]{arduino}{sketches/introLinguagem/.for.ino}
+    \begin{minted}{arduino}
+      for (int i = 1; i < n; i += 2) {
+      	ações;
+      }
+    \end{minted}
+%    \inputminted[firstline=28,lastline=30]{arduino}{sketches/introLinguagem/.for.ino}
+  \end{columns}
+%  \pause
+  Respondam: como seria um \textit{for} iterando sobre as potências de 2?
+%  \only<0|handout:2>{%
+%    R:\\
+%    \begin{minted}{arduino}
+%    \end{minted}%
+%  }
 \end{frame}

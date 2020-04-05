@@ -1,6 +1,6 @@
 EXTRACT_DIR:=slides
 SLIDES     :=0 1 2 3
-TEMP_FILES :=*.aux *.log *.nav *.pdf *.snm *.synctex.gz *.toc
+TEMP_FILES :=*.aux *.log *.nav *.pdf *.snm *.synctex.gz *.toc *.vrb
 TEX        :=pdflatex # Se não executar no WSL, adicione a extensão .exe
 TEX_FLAGS  :=-synctex=1 -interaction=nonstopmode
 
