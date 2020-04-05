@@ -2,6 +2,7 @@
 
 
 \begin{frame}{\insertsection}
+
 	\only<1>{%
 		Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar.
 
@@ -18,6 +19,7 @@
 			\item É preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.
 		\end{enumerate}%
 	}
+
 \end{frame}
 
 
@@ -25,6 +27,7 @@
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Variáveis são declaradas da seguinte forma.
 	\begin{minted}{arduino}
 		@\HighlightType{tipo}@ identificador;
@@ -34,10 +37,12 @@
 	\begin{minted}{arduino}
 		@\HighlightType{tipo}@ identificador = @\HighlightInit{valor\_inicial}@;
 	\end{minted}
+
 \end{frame}
 
 
 \begin{frame}{\insertsection: \insertsubsection}
+
 	Estes tipos são suficientes para o minicurso.
 
 	\begin{description}
@@ -56,10 +61,12 @@
 
 	\vfill
 	\textbf{Obs.:} essas informações são referentes ao ATmega2560 e \textbf{são diferentes} em outras plataformas.
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \texttt{\HighlightSpecial{unsigned}}.
 	\begin{minted}{arduino}
 		unsigned int natural = 10;
@@ -73,10 +80,12 @@
 	\bigskip
 	Respondam: que tipo é equivalente a \texttt{\HighlightSpecial{unsigned~char}}?\\
 	\only<0|handout:2>{R: \texttt{\HighlightSpecial{byte}}}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Quando não se quer que o valor duma variável mude, pode-se usar o modificador \texttt{\HighlightSpecial{const}}.
 	\begin{minted}{arduino}
 		const String senha = "Fantasma!";
@@ -87,10 +96,12 @@
 	\end{minted}
 
 	Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Se não entendeu direito, use o especificador \texttt{\HighlightSpecial{auto}} e deixe que o compilador adivinhe os tipos para você!
 	\begin{minted}{arduino}
 		auto til = '~';   // char
@@ -110,6 +121,7 @@
 
 		auto mensagem = "Programar é bacana!";          @$\leftarrow$ \alert{MELHOR NÃO}@
 	\end{minted}
+
 \end{frame}
 
 
@@ -117,6 +129,7 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
+
 	\begin{columns}[b]
 	\column{0.51\linewidth}
 		\begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
@@ -149,6 +162,7 @@
 		\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
 		\end{itemize}
 	\end{columns}
+
 \end{frame}
 
 
@@ -156,6 +170,7 @@
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a de outras linguagens.
 	\begin{columns}[t]
 	\column{0.28\linewidth}
@@ -189,10 +204,12 @@
 		\end{minted}
 	\end{columns}
 	Note que não é a indentação que define o corpo do \textit{if}, mas sim as chaves.
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Lembra que quebras de linha e espaço extra não fazem diferença?
 	\begin{columns}[t]
 	\column{0.28\linewidth}
@@ -235,10 +252,12 @@
 			}
 		\end{minted}
 	\end{columns}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Só não faça algo assim:
 	\begin{columns}[t]
 	\column{0.5\linewidth}
@@ -261,6 +280,7 @@
 			}
 		\end{minted}
 	\end{columns}
+
 \end{frame}
 
 
@@ -268,6 +288,7 @@
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Funções são definidas da seguinte forma.
 	\begin{minted}{arduino}
 		@\HighlightType{tipo\_de\_retorno}@ nome(@\HighlightSpecial{parâmetros}@) {
@@ -282,10 +303,12 @@
 		\item O tipo de retorno da função é o tipo do \HighlightSpecial{resultado} retornado com o comando \texttt{\textbf{return}}.
 		\item Se a função não retorna nada, então seu tipo de retorno é \texttt{\textbf{void}} e pode-se omitir o comando \texttt{\textbf{return}}.
 	\end{itemize}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Exemplos:
 	\begin{minted}{arduino}
 		void setup() {
@@ -302,10 +325,12 @@
 		\item[\texttt{setup}] é executada uma só vez, logo no início.
 		\item[\texttt{loop}] é executada repetidamente após \texttt{\HighlightSpecial{setup}} retornar.
 	\end{description}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Exemplos (inventados):
 	\begin{columns}[t]
 	\column{0.5\linewidth}
@@ -336,10 +361,12 @@
 			}
 		\end{minted}
 	\end{columns}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Exemplos (inventados):
 	\begin{minted}{arduino}
 		/* Descrição: verifica se <usuario> e <senha> são válidos.
@@ -355,6 +382,7 @@
 			}
 		}
 	\end{minted}
+
 \end{frame}
 
 
@@ -362,12 +390,15 @@
 
 
 \begin{frame}{\insertsection: \insertsubsection}
+
 	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt/} descreve todas.
 %  As seguintes são as mais úteis.
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Configura o pino especificado para funcionar como entrada ou saída.
 	\begin{minted}{arduino}
 		void pinMode(byte pin, byte mode);
@@ -379,15 +410,18 @@
 %    \item[\texttt{INPUT\_PULLUP}] modo para entrada com resistor de pull-up interno.
 		\item[\texttt{OUTPUT}] modo para saída.
 	\end{description}
+
 \end{frame}
 
 
 \begin{frame}{\insertsection: \insertsubsection}
+
 	Também há várias constantes definidas para nos ajudar.
 	\begin{description}
 		\item[\texttt{HIGH}] nível lógico alto
 		\item[\texttt{LOW}] nível lógico baixo
 	\end{description}
+
 \end{frame}
 
 
@@ -395,16 +429,19 @@
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	A estrutura \textit{while} funciona como a de outras linguagens: ações dentro do laço são repetidas enquanto a condição for verdadeira.
 	\begin{minted}{arduino}
 		while (@\HighlightSpecial{condição}@) {
 			ações;
 		}
 	\end{minted}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	A estrutura de um laço \textit{for} é esta:
 	\begin{minted}{arduino}
 		for (@\HighlightSpecial{inicialização}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
@@ -422,10 +459,12 @@
 	\end{minted}
 
 	A inicialização pode incluir ou não uma \textbf{declaração} de variável.
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Se houver declaração, cria-se uma variável visível somente dentro do laço.
 	\begin{minted}{arduino}
 		for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
@@ -443,10 +482,12 @@
 			ações;
 		}
 	\end{minted}
+
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
+
 	Exemplos:
 	\begin{columns}
 	\column{0.5\linewidth}
@@ -481,4 +522,5 @@
 %    \begin{minted}{arduino}
 %    \end{minted}%
 %  }
+
 \end{frame}
