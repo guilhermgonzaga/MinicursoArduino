@@ -1,5 +1,14 @@
 # MinicursoArduino
 
+[![][gh-build-badge]][gh-actions]
+[![][license-shield]][repo-url]
+
+[license-shield]: https://img.shields.io/github/license/guilhermgonzaga/MinicursoArduino
+[repo-url]:       https://github.com/guilhermgonzaga/MinicursoArduino
+[gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
+[gh-build-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
+
+
 **[Em produção]** Material para um minicurso voltado aos ingressantes de Engenharia de Computação na Universidade Federal de Mato Grosso do Sul (UFMS).
 
 O material foi produzido em LaTeX/Beamer com o tema [Focus](https://github.com/elauksap/focus-beamertheme).
