@@ -1,12 +1,12 @@
 # MinicursoArduino
 
-[![][gh-build-badge]][gh-actions]
-[![][license-shield]][repo-url]
+[![GitHub Workflow][gh-build-badge]][gh-actions]
+[![license\|CC0-1.0][license-shield]][license-url]
 
-[license-shield]: https://img.shields.io/github/license/guilhermgonzaga/MinicursoArduino
-[repo-url]:       https://github.com/guilhermgonzaga/MinicursoArduino
-[gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
 [gh-build-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
+[gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
+[license-shield]: https://img.shields.io/github/license/guilhermgonzaga/MinicursoArduino?logo=latex
+[license-url]:    https://choosealicense.com/licenses/cc0-1.0/
 
 
 **[Em produção]** Material para um minicurso voltado aos ingressantes de Engenharia de Computação na Universidade Federal de Mato Grosso do Sul (UFMS).
@@ -34,7 +34,7 @@ As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes 
 Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 
 `pdflatex`
-: Uma distribuição LaTeX de sua preferência. Este material é feito com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Linux (Ubuntu 19.10).
+: Uma distribuição LaTeX de sua preferência. Este material é testado com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Ubuntu 19. É necessário que a versão do TeX Live seja *2018* ou mais recente, pois anteriores não trazem o tema usado nos slides.
 
 `python`
 : Python, dependência de Pygments.
@@ -51,7 +51,7 @@ Dê uma olhada em [CONTRIBUTING.md](./CONTRIBUTING.md) para regras e informaçõ
 
 <br>
 
-## Geração dos Slides
+## Geração dos slides
 
 Os comandos seguintes devem ser executados no diretório raiz do projeto. Lembre-se de gerar duas vezes seguidas quando o diretório estiver limpo, senão algumas referências internas do arquivo, como o sumário, estarão inválidas. Este é um problema comum.
 
