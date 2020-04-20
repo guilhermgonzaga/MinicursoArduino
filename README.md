@@ -1,7 +1,7 @@
 # MinicursoArduino
 
-[![GitHub Workflow][gh-build-badge]][gh-actions]
-[![license\|CC0-1.0][license-shield]][license-url]
+[![Build status][gh-build-badge]][gh-actions]
+[![license][license-shield]][license-url]
 
 [gh-build-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
 [gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
