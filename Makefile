@@ -1,13 +1,13 @@
 EXTRACT_DIR:=slides
 SLIDES     :=0 1 2 3
-TEMP_FILES :=*.aux *.log *.nav *.pdf *.snm *.synctex.gz *.toc *.vrb
-TEX        :=pdflatex # Se não executar no WSL, adicione a extensão .exe
+TEMP_FILES :=*.aux *.log *.nav *.out *.out.pyg *.pyg *.pdf *.snm *.synctex.gz *.synctex\(busy\) *.toc *.vrb
+TEX        :=pdflatex  # Se não executar no WSL, adicione a extensão .exe
 TEX_FLAGS  :=-synctex=1 -interaction=nonstopmode
 
 ifeq ($(OS),Windows_NT)
-	TEX_FLAGS+=-enable-write18 -quiet # Compatível com MiKTeX
+	TEX_FLAGS+=-enable-write18 -quiet  # Compatível com MiKTeX
 else
-	TEX_FLAGS+=-shell-escape          # Compatível com TeX Live
+	TEX_FLAGS+=-shell-escape           # Compatível com TeX Live
 endif
 
 

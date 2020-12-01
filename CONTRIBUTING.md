@@ -9,7 +9,7 @@
 
 ## Formatação dos Arquivos de Texto
 
-Considere que *tabs* são configuradas para dois espaços.
+Considere que *tabs* são configuradas para dois espaços para contar colunas.
 
 |Tipo           |Indentação|*Wrapping*|Máx.<br>colunas|
 |:-------------:|:--------:|:--------:|:-------------:|
