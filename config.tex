@@ -1,17 +1,17 @@
-\documentclass[smaller]{beamer} % handout, unknownkeysallowed
+\documentclass[smaller]{beamer} % aspectratio=, draft, handout, unknownkeysallowed
 
 
 % PALETA DE CORES ======================
 
 
-\definecolor{CustomBrown}{HTML}{8C7965}
-\definecolor{CustomOrange}{HTML}{E47128}
-\definecolor{CustomTeal}{HTML}{00878F}
-\definecolor{CustomYellow}{HTML}{E5AD24}
-\definecolor{CustomLightBrown}{HTML}{BCAC9A}
-\definecolor{CustomLightGrey}{HTML}{ECF1F1}
-\definecolor{CustomLightOrange}{HTML}{F29C2D}
-\definecolor{CustomLightTeal}{HTML}{62AEB2}
+\definecolor{ArduinoBrown}{HTML}{8C7965}
+\definecolor{ArduinoOrange}{HTML}{E47128}
+\definecolor{ArduinoTeal}{HTML}{068183} % Alternative: 00878F
+\definecolor{ArduinoYellow}{HTML}{E5AD24}
+\definecolor{ArduinoLightBrown}{HTML}{BCAC9A}
+\definecolor{ArduinoLightGrey}{HTML}{ECF1F1}
+\definecolor{ArduinoLightOrange}{HTML}{F29C2D}
+\definecolor{ArduinoLightTeal}{HTML}{62AEB2}
 
 
 % TEMA =================================
@@ -19,10 +19,10 @@
 
 \usetheme{focus}
 
-\definecolor{main}{named}{CustomTeal}
-\definecolor{background}{named}{CustomLightGrey}
-\definecolor{alert}{named}{CustomLightOrange}
-\definecolor{example}{named}{CustomBrown}
+\definecolor{main}{named}{ArduinoTeal}
+\definecolor{background}{named}{ArduinoLightGrey}
+\definecolor{alert}{named}{ArduinoLightOrange}
+\definecolor{example}{named}{ArduinoBrown}
 
 \setbeamercolor{block title}{bg=main!85!background, fg=background!50!white}
 \setbeamercolor{block body}{bg=main!8!background, fg=main!20!black}
@@ -32,12 +32,12 @@
 \setbeamercolor{block body example}{bg=example!9!background, fg=main!30!black}
 
 \setbeamercolor{normal text}{fg=black, bg=background}
-\setbeamercolor{itemize item}{fg=CustomOrange}
-\setbeamercolor{itemize subitem}{fg=CustomOrange}
-\setbeamercolor{enumerate item}{fg=CustomOrange!90!black}
-\setbeamercolor{enumerate subitem}{fg=CustomOrange!90!black}
-\setbeamercolor{description item}{fg=CustomOrange}
-\setbeamercolor{description subitem}{fg=CustomOrange}
+\setbeamercolor{itemize item}{fg=ArduinoOrange}
+\setbeamercolor{itemize subitem}{fg=ArduinoOrange}
+\setbeamercolor{enumerate item}{fg=ArduinoOrange!90!black}
+\setbeamercolor{enumerate subitem}{fg=ArduinoOrange!90!black}
+\setbeamercolor{description item}{fg=ArduinoOrange}
+\setbeamercolor{description subitem}{fg=ArduinoOrange}
 \setbeamerfont{footline}{size=\tiny}
 
 \setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
@@ -79,7 +79,7 @@
 \setminted{
 %  beameroverlays=true,
 	bgcolor=white,
-	highlightcolor=CustomYellow!20!white,
+	highlightcolor=ArduinoYellow!20!white,
 	autogobble=true,
 	tabsize=2,
 	fontsize=\footnotesize,
