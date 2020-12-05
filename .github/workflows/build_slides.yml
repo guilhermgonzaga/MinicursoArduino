@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Compile ${{matrix.slides}}.tex
-        uses: xu-cheng/latex-action@1.2.1
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{matrix.slides}}.tex
           working_directory: ${{matrix.slides}}
