@@ -60,7 +60,7 @@
 	\end{description}
 
 	\vfill
-	\textbf{Obs.:} essas informações são referentes ao ATmega2560 e \textbf{são diferentes} em outras plataformas.
+	\textbf{Obs.:} essas larguras são referentes ao ATmega2560 e \textbf{são diferentes} em outras plataformas.
 
 \end{frame}
 
@@ -86,7 +86,7 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Quando não se quer que o valor duma variável mude, pode-se usar o modificador \texttt{\HighlightSpecial{const}}.
+	Quando se quer tornar uma variável imutável, pode-se usar o modificador \texttt{\HighlightSpecial{const}}.
 	\begin{minted}{arduino}
 		const String senha = "Fantasma!";
 		senha = "Essa é a senha!";  @$\leftarrow$ \alert{NÃO PODE}@
@@ -96,29 +96,6 @@
 	\end{minted}
 
 	Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
-
-\end{frame}
-
-
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
-
-	Se não entendeu direito, use o especificador \texttt{\HighlightSpecial{auto}} e deixe que o compilador adivinhe os tipos para você!
-	\begin{minted}{arduino}
-		auto til = '~';   // char
-
-		auto dez = 10;    // int
-
-		auto phi = 1.618; // double
-	\end{minted}
-
-	\pause
-	\bigskip
-	Só tenha cuidado com o tipo \texttt{\HighlightSpecial{String}}.
-	\begin{minted}{arduino}
-		String mensagem = "Programar é bacana!";        @$\leftarrow$ \alert{NORMAL}@
-
-		auto mensagem = "Programar é bacana!";          @$\leftarrow$ \alert{MELHOR NÃO}@
-	\end{minted}
 
 \end{frame}
 
@@ -156,7 +133,7 @@
 		\texttt{~!~$\Longleftrightarrow$~not}\\
 		\texttt{\&\&~$\Longleftrightarrow$~and}\\
 		\texttt{||~$\Longleftrightarrow$~or}\smallskip\\
-		\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} em inteiros e \textbf{real} em ponto flutuante.
+		\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} de inteiros e \textbf{real} de ponto flutuante.
 		\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
 		\end{itemize}
 	\end{columns}
@@ -190,7 +167,7 @@
 
 	\column{0.44\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@) {
+			if (@\HighlightSpecial{uma condição}@) {
 				ações;
 			}
 			else if (@\HighlightSpecial{outra condição}@) {
@@ -201,7 +178,6 @@
 			}
 		\end{minted}
 	\end{columns}
-	Note que não é a indentação que define o corpo do \textit{if}, mas sim as chaves.
 
 \end{frame}
 
@@ -250,6 +226,7 @@
 			}
 		\end{minted}
 	\end{columns}
+	Não é a indentação que define o corpo, mas sim as chaves.
 
 \end{frame}
 
@@ -308,15 +285,8 @@
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
 	Exemplos:
-	\begin{minted}{arduino}
-		void setup() {
 
-		}
-
-		void loop() {
-
-		}
-	\end{minted}
+	\inputminted{arduino}{\SketchPath{bare minimum}}
 
 	Todo programa para Arduino precisa definir estas duas funções.
 	\begin{description}
@@ -372,7 +342,7 @@
 		 *            false caso contrário.
 		 */
 		bool checa_credenciais(String usuario, String senha) {
-			if (@\HighlightSpecial{usuario existe}@ && @\HighlightSpecial{senha correta}@) {
+			if (@\HighlightSpecial{usuario existe}@ && @\HighlightSpecial{senha correta para ele}@) {
 				return true;
 			}
 			else {
