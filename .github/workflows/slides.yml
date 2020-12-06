@@ -1,0 +1,26 @@
+name: Slides
+
+# Triggers the workflow on push or pull request events but only for the master branch
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_texlive:
+    name: Build slides with TeX Live
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build all slides with latexmk
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            apk add py-pygments
+            latexmk
