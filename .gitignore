@@ -20,10 +20,4 @@
 *.xml
 
 # Slides
-0/0.pdf
-1/1.pdf
-2/2.pdf
-3/3.pdf
-
-# Pasta de extração dos slides
-slides/
+?/?.pdf

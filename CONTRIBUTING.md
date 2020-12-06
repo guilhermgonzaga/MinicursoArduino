@@ -1,7 +1,7 @@
 # Guia de contribuição
 
-1. Estenda o arquivo `.gitattributes` com novas extensões de arquivos binários que porventura inclua no repositório.
-1. Caso inclua novas aulas, declare as mudanças nos arquivos `.gitignore`, `Makefile` e `.github/workflows/build.yml`.
+1. Atualize o arquivo `.gitattributes` com novas extensões de arquivos binários que porventura inclua no repositório.
+1. *Sketches* devem compilar com sucesso usando [Arduino CLI](https://github.com/arduino/arduino-cli).
 1. Os arquivos PDF gerados de cada aula não serão versionados.
 
 
@@ -38,8 +38,7 @@ Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da inde
 
 As melhorias listadas serão bem-vindas.
 
+- [ ] Encontrar forma de copiar trechos de código dos slides sem perder a formatação.
 - [ ] Introdução à estrutura `switch` na aula 0
 - [ ] Introdução à estrutura `do while` na aula 0
-- [ ] Regra em `Makefile` para verificar com Arduino CLI se todos os *sketches* compilam.
-- [ ] Encontrar forma de copiar trechos de código dos slides sem perder a formatação.
-- [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para aplicar uma convenção de estilo (a definir) ao código LaTeX.
+- [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para manter consistência de estilo no código LaTeX.

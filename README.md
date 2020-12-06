@@ -1,19 +1,16 @@
 # MinicursoArduino
 
-[![Build status][gh-build-badge]][gh-actions]
-[![license][license-shield]][license-url]
+[![Build Slides][gh-slides-badge]][gh-actions]
+[![Compile Sketches][gh-sketches-badge]][gh-actions]
 
-[gh-build-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
+[gh-slides-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
+[gh-sketches-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Compile%20Sketches/badge.svg
 [gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
-[license-shield]: https://img.shields.io/github/license/guilhermgonzaga/MinicursoArduino?logo=latex
-[license-url]:    https://choosealicense.com/licenses/cc0-1.0/
 
 
 **[Em produção]** Material para um minicurso voltado aos ingressantes de Engenharia de Computação na Universidade Federal de Mato Grosso do Sul (UFMS).
 
 O material foi produzido em LaTeX/Beamer com o tema [Focus](https://github.com/elauksap/focus-beamertheme).
-
-Slides serão anexos a cada [*release*](https://github.com/guilhermgonzaga/MinicursoArduino/releases), caso não queira gerá-los manualmente.
 
 
 ## Ementa
@@ -27,52 +24,47 @@ As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes 
 1. Introdução à Linguagem (C++)
 
 
-## Desenvolvimento do material
+## Geração dos slides
+
+Slides serão anexos a cada [*release*](https://github.com/guilhermgonzaga/MinicursoArduino/releases), caso não queira gerá-los manualmente.
+
+O latexmk cuida de todo o processo de geração, inclusive compila várias vezes para resolver referências. Ademais, se nenhum arquivo fonte for alterado, o slide dependente não é recompilado.
+
+### Dependências
 
 Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 
-`pdflatex`
+`latexmk`, `pdflatex`
 : Uma distribuição LaTeX de sua preferência. Este material é testado com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Ubuntu LTS. É necessário o TeX Live 2018 ou mais recente, pois anteriores não trazem o tema usado nos slides.
+
+`perl`
+: Perl, dependência de Latexmk.
 
 `python`
 : Python, dependência de Pygments.
 
 `pygmentize`
-: [Pygments](https://pygments.org/), para fazer a coloração de sintaxe nos exemplos de código.
+: [Pygments](https://pygments.org/) para fazer a coloração de sintaxe nos exemplos de código.
 
-`make`
-: GNU Make, para geração mais fácil dos slides. Usuários de Windows não poderão usar o GNU Make naturalmente. A alternativa recomendada é acessá-lo pelo [*Windows Subsystem for Linux*](https://docs.microsoft.com/pt-br/windows/wsl/install-win10).
+### Comandos
 
-### Contribuindo com o projeto
+Os comandos devem ser executados no diretório raiz do projeto.
 
-Dê uma olhada em [CONTRIBUTING.md](./CONTRIBUTING.md) para mais informações.
+Gerar todos os slides:
 
+```sh
+latexmk
+```
 
-## Geração dos slides
+Apagar arquivos temporários:
 
-Os comandos seguintes devem ser executados no diretório raiz do projeto. Lembre-se de gerar duas vezes seguidas quando o diretório estiver limpo, senão algumas referências internas do arquivo, como o sumário, estarão inválidas. Este é um problema comum.
+```sh
+latexmk -c
+```
 
-1. Gerar todos os slides:
+Em todo caso, é possível especificar uma ou mais aulas passando o caminho relativo ao arquivo principal.
 
-	```sh
-	make
-	```
-
-	É o mesmo que `make all`. Alternativamente, um slide específico pode ser gerado com `make n`, sendo `n` o número da aula (0, 1, 2, ...).
-
-1. Extrair todos os slides criados até então para uma pasta `slides/` no diretório raiz do projeto.
-
-	```sh
-	make extract
-	```
-
-	Obs.: slides só serão extraídos se forem mais novos que os já presentes na pasta.
-
-1. Obter uma lista detalhada das opções de comando (nem todos descritos aqui).
-
-	```sh
-	make help
-	```
+Veja mais opções de linha de comando na documentação do latexmk ([PDF](http://linorg.usp.br/CTAN/support/latexmk/latexmk.pdf) ou [texto simples](http://linorg.usp.br/CTAN/support/latexmk/latexmk.txt)).
 
 ### Problemas Comuns
 
@@ -87,3 +79,8 @@ Os comandos seguintes devem ser executados no diretório raiz do projeto. Lembre
 	...
 	\end{frame}
 	```
+
+
+## Contribuindo com o projeto
+
+Dê uma olhada em [CONTRIBUTING.md](./CONTRIBUTING.md) para mais informações.

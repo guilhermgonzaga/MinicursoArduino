@@ -1,0 +1,34 @@
+name: Compile Sketches
+
+# Triggers the workflow on push or pull request events but only for the master branch
+on:
+  push:
+    paths:
+      - compile-sketches.ps1
+      - '[0-9]/sketches/**'
+  pull_request:
+    paths:
+      - compile-sketches.ps1
+      - '[0-9]/sketches/**'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  check-sketches:
+    name: Check compilation of sketches
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Arduino CLI
+        uses: arduino/setup-arduino-cli@v1.1.1
+
+      - name: Install platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install arduino:avr
+
+      - name: Compile all sketches with Arduino CLI
+        shell: pwsh
+        run: ./compile-sketches.ps1
