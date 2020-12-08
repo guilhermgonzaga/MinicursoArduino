@@ -5,19 +5,23 @@ Param(
 
 $failures = @()
 
-Get-ChildItem -Directory -Path ?/sketches/* |
-Resolve-Path -Relative |
+Get-ChildItem -File -Path '[0-9]/sketches/*/*.ino' |
+Where-Object {$_.BaseName -eq $_.Directory.Name} |
 ForEach-Object {
-  Write-Output "-> $_"
-  if (-not (arduino-cli compile --dry-run --fqbn $fqbn "$_")) {
-    $failures += $_
+  $relPath = Resolve-Path -Relative $_.Directory
+  Write-Output "Compiling '$relPath':"
+
+  arduino-cli compile --dry-run --fqbn $fqbn "$_"
+  if (-not $?) {
+    $failures += $relPath
   }
+
+  Write-Output ''
 }
 
 if ($failures.Count -eq 0) {
-  Write-Output "`nAll sketches compiled successfully."
+  Write-Output "All sketches compiled successfully."
 } else {
-  Write-Output "`n$($failures.Count) compilation failure(s):"
-  Write-Output $failures
+  Write-Output "Compilation failure(s): $($failures.Count)" $failures
   exit 1
 }

@@ -35,7 +35,7 @@ O latexmk cuida de todo o processo de geração, inclusive compila várias vezes
 Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 
 `latexmk`, `pdflatex`
-: Uma distribuição LaTeX de sua preferência. Este material é testado com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Ubuntu LTS. É necessário o TeX Live 2018 ou mais recente, pois anteriores não trazem o tema usado nos slides.
+: Uma distribuição LaTeX de sua preferência. Este material é produzido com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Linux. É necessário o TeX Live 2018 ou mais recente, pois anteriores não trazem o tema usado nos slides.
 
 `perl`
 : Perl, dependência de Latexmk.
