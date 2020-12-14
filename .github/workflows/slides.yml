@@ -1,6 +1,5 @@
 name: Build Slides
 
-# Triggers the workflow on push or pull request events but only for the master branch
 on:
   push:
     paths:
@@ -13,7 +12,7 @@ on:
       - 'common/**'
       - '[0-9]/**'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A workflow is made up of one or more jobs that run sequentially or in parallel
 jobs:
   build-texlive:
     name: Build slides with TeX Live
