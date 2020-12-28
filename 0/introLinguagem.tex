@@ -4,7 +4,7 @@
 \begin{frame}{\insertsection}
 
 	\only<1>{%
-		Arduino usa a linguagem C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar.
+		Arduino é programado em C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar.
 
 		\bigskip
 		Vamos mostrar só o básico para que vocês se virem.%
@@ -49,9 +49,9 @@
 		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}; também chamado \texttt{\HighlightSpecial{boolean}}
 		\item[\texttt{char}] inteiros de 8 bits
 		\item[\texttt{byte}] inteiros não negativos de 8 bits
-%    \item[\texttt{short}] inteiros de 16 bits
+%		\item[\texttt{short}] inteiros de 16 bits
 		\item[\texttt{int}] inteiros de 16 bits
-%    \item[\texttt{word}] inteiros não negativos de 16 bits
+%		\item[\texttt{word}] inteiros não negativos de 16 bits
 		\item[\texttt{long}] inteiros de 32 bits
 		\item[\texttt{float}] ponto flutuante de 32 bits; equivale a \texttt{\HighlightSpecial{double}}
 		\item[\texttt{String}] texto
@@ -109,7 +109,6 @@
 	\column{0.51\linewidth}
 		\begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
 			\begin{tabular}{cl}
-%        \textbf{Categoria} & \textbf{Operadores}                 \\ \hline
 				Pós-fixados  & \multirow{2}{*}{\texttt{++ {-}{-}}}        \\
 				(unários)    &                                            \\ \hline
 				Prefixados   & \texttt{++ {-}{-} + -}                     \\
@@ -121,7 +120,7 @@
 				Igualdade    & \texttt{== !=}                             \\ \hline
 				Bit-a-bit    & \texttt{\& | $\wedge$}                     \\ \hline
 				Lógicos      & \texttt{\&\& ||}                           \\ \hline
-%        Condicionais & \texttt{?:}                                \\ \hline
+%				Condicionais & \texttt{?:}                                \\ \hline
 				\multirow{2}{*}{Atribuição\HighlightSpecial{**}} & \texttt{= *= /= \%= +=} \\
 										 & \texttt{-= <{<}= >{>}=}                    \\ %\hline
 			\end{tabular}
@@ -233,7 +232,7 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Só não faça algo assim:
+	Mas escreva algo legível e consistente:
 	\begin{columns}[t]
 	\column{0.5\linewidth}
 		\begin{minted}{arduino}
@@ -360,23 +359,38 @@
 \begin{frame}{\insertsection: \insertsubsection}
 
 	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt/} descreve todas.
-%  As seguintes são as mais úteis.
 
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Configura o pino especificado para funcionar como entrada ou saída.
+	Configura o pino especificado como entrada ou saída.
 	\begin{minted}{arduino}
 		void pinMode(byte pin, byte mode);
 	\end{minted}
 
 	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
 	\begin{description}
-		\item[\texttt{INPUT}] modo para entrada.
-%    \item[\texttt{INPUT\_PULLUP}] modo para entrada com resistor de pull-up interno.
-		\item[\texttt{OUTPUT}] modo para saída.
+		\item[\texttt{OUTPUT}] modo para escrita.
+		\item[\texttt{INPUT}] modo para leitura.
+%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
+	\end{description}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Aplica um nível lógico ao pino especificado.
+	\begin{minted}{arduino}
+		void digitalWrite(byte pin, byte val);
+	\end{minted}
+
+	O valor de \texttt{\textbf{val}} deve ser um destes abaixo.
+	\begin{description}
+		\item[\texttt{HIGH}] nível lógico alto
+		\item[\texttt{LOW}] nível lógico baixo
 	\end{description}
 
 \end{frame}
@@ -386,8 +400,10 @@
 
 	Também há várias constantes definidas para nos ajudar.
 	\begin{description}
-		\item[\texttt{HIGH}] nível lógico alto
-		\item[\texttt{LOW}] nível lógico baixo
+		\item[\texttt{PI}] A constante $\pi$.
+		\item[\texttt{EULER}] A constante $e$.
+		\item[\texttt{LED\_BUILTIN}] Pino digital com um LED conectado. Para nós, o pino 13.
+		\item[\texttt{...}] \emph{Muitas outras}.
 	\end{description}
 
 \end{frame}
@@ -483,12 +499,12 @@
 		\end{minted}
 	\end{columns}
 
-%  \pause
+%	\pause
 	Respondam: como seria um \textit{for} iterando sobre as potências de 2?
-%  \only<0|handout:2>{%
-%    R:\\
-%    \begin{minted}{arduino}
-%    \end{minted}%
-%  }
+%	\only<0|handout:2>{%
+%		R:\\
+%		\begin{minted}{arduino}
+%		\end{minted}%
+%	}
 
 \end{frame}

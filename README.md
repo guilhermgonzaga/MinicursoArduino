@@ -40,11 +40,11 @@ Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 `perl`
 : Perl, dependência de Latexmk.
 
-`python`
-: Python, dependência de Pygments.
-
 `pygmentize`
 : [Pygments](https://pygments.org/) para fazer a coloração de sintaxe nos exemplos de código.
+
+`python`
+: Python, dependência de Pygments.
 
 ### Comandos
 
