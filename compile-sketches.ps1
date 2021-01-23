@@ -15,6 +15,7 @@ https://arduino.github.io/arduino-cli/latest/
 .LINK
 https://arduino.github.io/arduino-cli/latest/FAQ/#whats-the-fqbn-string
 #>
+# SPDX-License-Identifier: CC0-1.0
 
 Param(
 	[string] $fqbn = 'arduino:avr:mega',

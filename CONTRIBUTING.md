@@ -1,8 +1,17 @@
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+
 # Guia de contribuição
 
-1. Atualize o arquivo `.gitattributes` com novas extensões de arquivos binários que porventura inclua no repositório.
-1. *Sketches* devem compilar com sucesso usando [Arduino CLI](https://github.com/arduino/arduino-cli).
 1. Os arquivos PDF gerados de cada aula não serão versionados.
+1. Todo arquivo de texto adicionado deve começar com o [identificador SPDX](https://spdx.dev/ids) `SPDX-License-Identifier: CC0-1.0` seguido de uma linha em branco.
+1. Se incluir novos arquivos binários, lembre-se de atualizar o arquivo `.gitattributes` com as extensões.
+1. *Sketches* devem compilar com sucesso usando o script fornecido. Se quiser usar apenas um fragmento de código, insira-o diretamente no arquivo Latex com:
+
+	```tex
+	\begin{minted}{arduino}
+	...
+	\end{minted}
+	```
 
 
 ## Formatação dos Arquivos de Texto
@@ -40,5 +49,4 @@ As melhorias listadas serão bem-vindas.
 
 - [ ] Encontrar forma de copiar trechos de código dos slides sem perder a formatação.
 - [ ] Introdução à estrutura `switch` na aula 0
-- [ ] Introdução à estrutura `do while` na aula 0
 - [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para manter consistência de estilo no código LaTeX.

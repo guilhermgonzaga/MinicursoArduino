@@ -1,4 +1,6 @@
-\documentclass[smaller]{beamer} % aspectratio=, draft, handout, unknownkeysallowed
+% SPDX-License-Identifier: CC0-1.0
+
+\documentclass[smaller]{beamer} % aspectratio=,draft,handout,unknownkeysallowed
 
 
 % PALETA DE CORES ======================
@@ -48,7 +50,7 @@
 
 \usepackage[brazilian]{babel}
 \usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
-\usepackage[cache=false, draft, section]{minted} % XXX: remover draft no final
+\usepackage[cache=false,draft,section]{minted} % XXX: remover draft no final
 \usepackage{graphicx}
 \usepackage{multirow}
 
@@ -81,9 +83,11 @@
 \AtBeginSection{}
 \AtEndDocument{\FinalFrame}
 
-\graphicspath{{"../common/graphics/"}{graphics/}} % Diretórios de imagens comum e local, respectivamente.
+% Diretórios de imagens comum e local, respectivamente.
+\graphicspath{{../common/graphics/}{graphics/}}
 
-\renewcommand{\arraystretch}{1.1} % Aumenta o espaçamento entre linhas de tabelas em 10%.
+% Aumenta o espaçamento entre linhas de tabelas em 10%.
+\renewcommand{\arraystretch}{1.1}
 
 
 % MACROS ===============================
@@ -98,6 +102,9 @@
 
 % Preenchimento do endereço de sketches
 \newcommand{\SketchPath}[1]{{sketches/#1/#1.ino}} % Abstração do diretório local de sketches
+
+% Inserir sketch e ignorar as linhas do identificador SPDX
+\newcommand{\Sketch}[1]{\inputminted[firstline=3]{arduino}{\SketchPath{#1}}}
 
 % Coloração de sintaxe de elementos especiais em código.
 \newcommand{\HighlightSpecial}[1]{\textbf{\textcolor{ArduinoOrange}{#1}}}
@@ -130,6 +137,7 @@
 % METADADOS ============================
 
 
+% O título será definido em cada slide, não aqui
 \subtitle{Minicurso de Arduino}
 \author{}
 \institute[Facom/UFMS]{\vspace{-\bigskipamount}
