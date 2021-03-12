@@ -21,16 +21,16 @@ As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes 
 
 ### Aula 0 (opcional)
 
-1. Descrição do Arduino Mega 2560
-1. Ambiente de desenvolvimento (Arduino IDE)
-1. Introdução à Linguagem (C++)
+- Descrição do Arduino Mega 2560
+- Ambiente de desenvolvimento (Arduino IDE)
+- Introdução à Linguagem (C++)
 
 
 ## Geração dos slides
 
 Slides serão anexos a cada [*release*](https://github.com/guilhermgonzaga/MinicursoArduino/releases), caso não queira gerá-los manualmente.
 
-O latexmk cuida de todo o processo de geração, inclusive compila várias vezes para resolver referências. Ademais, se nenhum arquivo fonte for alterado, o slide dependente não é recompilado.
+O Latexmk cuida de todo o processo de geração, inclusive compila várias vezes para resolver referências. Ademais, se nenhum arquivo fonte for alterado, o slide dependente não é recompilado.
 
 ### Dependências
 
@@ -50,23 +50,25 @@ Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 
 ### Comandos
 
-Os comandos devem ser executados no diretório raiz do projeto.
-
-Gerar todos os slides:
+Os comandos devem ser executados por padrão no diretório raiz do projeto.
 
 ```sh
+# Gera todos os slides
 latexmk
-```
-
-Apagar arquivos temporários:
-
-```sh
+# Apaga arquivos temporários
 latexmk -c
 ```
 
-Em todo caso, é possível especificar uma ou mais aulas passando o caminho relativo ao arquivo principal.
+Em todo caso, é possível especificar aulas passando o caminho relativo ao arquivo principal. Exemplo:
 
-Veja mais opções de linha de comando na documentação do latexmk ([PDF](http://linorg.usp.br/CTAN/support/latexmk/latexmk.pdf) ou [texto simples](http://linorg.usp.br/CTAN/support/latexmk/latexmk.txt)).
+```sh
+# Gera apenas a aula 0
+latexmk 0/0.tex
+# Limpa o diretório da aula 0
+latexmk -c 0/0.tex
+```
+
+Veja mais opções de linha de comando na documentação do Latexmk (em [PDF](http://linorg.usp.br/CTAN/support/latexmk/latexmk.pdf) ou [texto simples](http://linorg.usp.br/CTAN/support/latexmk/latexmk.txt)).
 
 ### Problemas Comuns
 
@@ -83,6 +85,6 @@ Veja mais opções de linha de comando na documentação do latexmk ([PDF](http:
 	```
 
 
-## Contribuindo com o projeto
+## Contribuindo com o material
 
 Dê uma olhada em [CONTRIBUTING.md](./CONTRIBUTING.md) para mais informações.

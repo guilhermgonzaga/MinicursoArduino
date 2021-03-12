@@ -13,6 +13,7 @@
 *.lot
 *.nav
 *.out
+*.out.ps
 *.pyg
 *.snm
 *.synctex*
