@@ -5,39 +5,35 @@
 
 \begin{frame}{\insertsection}
 
-	\only<1>{%
-		Arduino é programado em C++, mas qualquer um que conheça uma linguagem baseada em C terá facilidade ao programar.
+	Arduino é programado em C++, mas quem conhecer qualquer linguagem baseada em C terá facilidade. Veremos só o básico para que vocês se virem.
 
-		\bigskip
-		Vamos mostrar só o básico para que vocês se virem.%
-	}
+	\bigskip
+	Características da linguagem C e suas derivadas:
+	\begin{itemize}
+		\item Todo comando termina com ponto e vírgula.
+		\item Quebras de linha e espaços extras não fazem diferença. Portanto, há diversas formas de estilizar código.
+		\item É preciso especificar tipos na declaração de variáveis. Essa característica se chama tipagem estática.
+	\end{itemize}
 
-	\only<2>{%
-		\bigskip
-		Diferenças claras entre C++ e Python:
-		\begin{enumerate}
-			\item Todo comando termina com ponto e vírgula.
-			\item Quebras de linha e espaços extras não fazem diferença. Portanto, lembre-se que há vários estilos para se usar. Só não faça algo ilegível ou inconsistente.
-			\item É preciso especificar um tipo na declaração duma variável. Essa característica se chama tipagem estática.
-		\end{enumerate}%
-	}
+	\vfill
+	Leitura interessante: \Link[Tipagem fraca, forte, dinâmica e estática]{https://dev.to/joaoava/tipagem-fraca-forte-dinamica-e-estatica-g8k}
 
 \end{frame}
 
 
-\subsection{Tipos e variáveis}
+\subsection{Variáveis e tipos}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
 	Variáveis são declaradas da seguinte forma.
 	\begin{minted}{arduino}
-		@\HighlightType{tipo}@ identificador;
+		@\HighlightType{tipo}@ nome;
 	\end{minted}
 
 	Também é possível inicializar uma variável na declaração.
 	\begin{minted}{arduino}
-		@\HighlightType{tipo}@ identificador = @\HighlightInit{valor\_inicial}@;
+		@\HighlightType{tipo}@ nome = @\HighlightInit{valor~inicial}@;
 	\end{minted}
 
 \end{frame}
@@ -45,56 +41,55 @@
 
 \begin{frame}{\insertsection: \insertsubsection}
 
-	Estes tipos são suficientes para o minicurso.
+	Estes tipos são suficientes para nós. Veja todos na \Link[documentação]{https://www.arduino.cc/reference/pt}.
 
 	\begin{description}
-		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}; também chamado \texttt{\HighlightSpecial{boolean}}
-		\item[\texttt{char}] inteiros de 8 bits
-		\item[\texttt{byte}] inteiros não negativos de 8 bits
-%		\item[\texttt{short}] inteiros de 16 bits
-		\item[\texttt{int}] inteiros de 16 bits
-%		\item[\texttt{word}] inteiros não negativos de 16 bits
-		\item[\texttt{long}] inteiros de 32 bits
-		\item[\texttt{float}] ponto flutuante de 32 bits; equivale a \texttt{\HighlightSpecial{double}}
-		\item[\texttt{String}] texto
-		\item[\texttt{void}] tipo que significa "nada"; variáveis não podem ser deste tipo
-		\item[\texttt{...}] \emph{tipos específicos para cada módulo}
+		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}%; também chamado \texttt{\Highlight{boolean}}
+		\item[\texttt{char}] inteiro de 8 bits
+		\item[\texttt{byte}] inteiro não negativo de 8 bits\Highlight{**}
+%		\item[\texttt{short}] inteiro de 16 bits\Highlight{*}
+		\item[\texttt{int}] inteiro de 16 bits\Highlight{*}
+%		\item[\texttt{word}] inteiro não negativo de 16 bits\Highlight{**}
+		\item[\texttt{long}] inteiro de 32 bits\Highlight{*}
+		\item[\texttt{float}] ponto flutuante de 32 bits
+%		\item[\texttt{double}] ponto flutuante de 32 bits\Highlight{*}
+		\item[\texttt{String}] texto\Highlight{**}
+		\item[\texttt{void}] tipo que significa "nada"; tem usos bem específicos
+		\item[\texttt{...}] \emph{tipos dedicados a cada sensor/módulo}
 	\end{description}
 
 	\vfill
-	\textbf{Obs.:} essas larguras são referentes ao ATmega2560 e \textbf{são diferentes} em outras plataformas.
+	\begin{itemize}
+		\item[\textbf{*}] São os tamanhos no ATmega2560 e \textbf{podem mudar} em outros micros.
+		\item[\textbf{**}] Estes tipos só existem no ambiente Arduino.
+	\end{itemize}
 
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \texttt{\HighlightSpecial{unsigned}}.
+	Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \texttt{\Highlight{unsigned}}.
 	\begin{minted}{arduino}
 		unsigned int natural = 10;
 		natural = -10;  @$\leftarrow$ \alert{NÃO PODE}@
 
 		int inteiro = 10;
-		inteiro = -10;  @$\leftarrow$ \alert{PODE SIM}@
+		inteiro = -10;  @$\leftarrow$ \alert{PODE}@
 	\end{minted}
-
-	\pause
-	\bigskip
-	Respondam: que tipo é equivalente a \texttt{\HighlightSpecial{unsigned~char}}?\\
-	\only<0|handout:2>{R: \texttt{\HighlightSpecial{byte}}}
 
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Quando se quer tornar uma variável imutável, pode-se usar o modificador \texttt{\HighlightSpecial{const}}.
+	Quando se quer tornar uma variável imutável, pode-se usar o modificador \texttt{\Highlight{const}}.
 	\begin{minted}{arduino}
 		const String senha = "Fantasma!";
 		senha = "Essa é a senha!";  @$\leftarrow$ \alert{NÃO PODE}@
 
-		const float pi = 3.1416;
-		pi = 3.0;                   @$\leftarrow$ \alert{NÃO PODE}@
+		const float pi;             @$\leftarrow$ \alert{NÃO PODE}@
+		pi = 3.1416;                @$\leftarrow$ \alert{NÃO PODE}@
 	\end{minted}
 
 	Constantes devem ser inicializadas na declaração e não podem ter seu valor alterado.
@@ -109,37 +104,64 @@
 
 	\begin{columns}[b]
 	\column{0.51\linewidth}
-		\begin{block}{\centering Alguns dos operadores de C++.\\{\small A precedência é decrescente por linha.}}
+		\begin{block}{\centering Alguns dos operadores de C++.\\{\small Precedência decrescente.}}
 			\begin{tabular}{cl}
-				Pós-fixados  & \multirow{2}{*}{\texttt{++ {-}{-}}}        \\
-				(unários)    &                                            \\ \hline
-				Prefixados   & \texttt{++ {-}{-} + -}                     \\
-				(unários)    & \texttt{(\textbf{\HighlightType{tipo}}) !} \\ \hline
-				Multiplicativos\HighlightSpecial{*} & \texttt{* / \%}     \\ \hline
+				Unários      & \multirow{2}{*}{\texttt{++ {-}{-} [] .}}   \\
+				pós-fixados  &                                            \\ \hline
+				Unários      & \texttt{++ {-}{-} + -}                     \\
+				prefixados   & \texttt{(\textbf{\HighlightType{tipo}}) !} \\ \hline
+				Multiplicativos\Highlight{*} & \texttt{* / \%}            \\ \hline
 				Aditivos     & \texttt{+ -}                               \\ \hline
 				Deslocamento & \texttt{{<}{<} {>}{>}}                     \\ \hline
 				Relacionais  & \texttt{< > <= >=}                         \\ \hline
 				Igualdade    & \texttt{== !=}                             \\ \hline
-				Bit-a-bit    & \texttt{\& | $\wedge$}                     \\ \hline
+%				Bit-a-bit    & \texttt{\& $\wedge$ |}                     \\ \hline
 				Lógicos      & \texttt{\&\& ||}                           \\ \hline
 %				Condicionais & \texttt{?:}                                \\ \hline
-				\multirow{2}{*}{Atribuição\HighlightSpecial{**}} & \texttt{= *= /= \%= +=} \\
-										 & \texttt{-= <{<}= >{>}=}                    \\ %\hline
+				\multirow{2}{*}{Atribuição\Highlight{**}} & \texttt{= *= /= \%= +=} \\
+				             & \texttt{-= <{<}= >{>}=}                    \\ %\hline
 			\end{tabular}
 		\end{block}
 
 	\column{0.49\linewidth}
 		\begin{itemize}
-		\item Existem também \Link[representações~alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative}.\\
-		\texttt{~!~$\Longleftrightarrow$~not}\\
-		\texttt{\&\&~$\Longleftrightarrow$~and}\\
-		\texttt{||~$\Longleftrightarrow$~or}\smallskip\\
-		\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} de inteiros e \textbf{real} de ponto flutuante.
-		\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
+%			\item[] Também há \Link[representações alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative} para alguns.\\
+%			\texttt{~!~$\Longleftrightarrow$~not}\\
+%			\texttt{\&\&~$\Longleftrightarrow$~and}\\
+%			\texttt{||~$\Longleftrightarrow$~or}\smallskip\\
+			\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} de inteiros e \textbf{real} de ponto flutuante.
+			\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
 		\end{itemize}
 	\end{columns}
 
 \end{frame}
+
+% TODO
+%\begin{frame}[fragile]{\insertsection: \insertsubsection}
+%	Exemplos:
+%	\begin{columns}
+%	\column{0.33\linewidth}
+%
+%		\begin{minted}{arduino}
+%			int a = 5, b = 2;
+%			a = a + b;  // Mesmo que a += b;
+%		\end{minted}
+%
+%	\column{0.33\linewidth}
+%		\mintinline{arduino}{bool funnyCauseItsTrue = !false;}
+%		\begin{minted}{arduino}
+%			bool programmerJoke = !false;
+%
+%			// It's funny because it's true.
+%		\end{minted}
+%
+%	\column{0.33\linewidth}
+%		\begin{minted}{arduino}
+%
+%		\end{minted}
+%	\end{columns}
+%
+%\end{frame}
 
 
 \subsection{Condicionais}
@@ -147,18 +169,18 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Há várias formas de se usar a estrutura \textit{if-else}, com funcionamento igual a de outras linguagens.
+	Há várias formas de se usar a estrutura \emph{if-else}, com funcionamento igual a de outras linguagens.
 	\begin{columns}[t]
 	\column{0.28\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@) {
+			if (@\Highlight{condição}@) {
 				ações;
 			}
 		\end{minted}
 
 	\column{0.28\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@) {
+			if (@\Highlight{condição}@) {
 				ações;
 			}
 			else {
@@ -168,10 +190,10 @@
 
 	\column{0.44\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{uma condição}@) {
+			if (@\Highlight{uma condição}@) {
 				ações;
 			}
-			else if (@\HighlightSpecial{outra condição}@) {
+			else if (@\Highlight{outra condição}@) {
 				ações;
 			}
 			else {
@@ -189,7 +211,7 @@
 	\begin{columns}[t]
 	\column{0.28\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@)
+			if (@\Highlight{condição}@)
 			{
 				ações;
 			}
@@ -197,7 +219,7 @@
 
 		\vspace{-\medskipamount}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@) {
+			if (@\Highlight{condição}@) {
 				ações;
 			} else {
 				ações;
@@ -206,7 +228,7 @@
 
 	\column{0.28\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@)
+			if (@\Highlight{condição}@)
 			{
 				ações;
 			}
@@ -218,9 +240,9 @@
 
 	\column{0.44\linewidth}
 		\begin{minted}{arduino}
-			if (@\HighlightSpecial{condição}@) {
+			if (@\Highlight{condição}@) {
 				ações;
-			} else if (@\HighlightSpecial{outra condição}@) {
+			} else if (@\Highlight{outra condição}@) {
 				ações;
 			} else {
 				ações;
@@ -234,26 +256,23 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Mas escreva algo legível e consistente:
-	\begin{columns}[t]
+	Mas escreva algo convencional!
+	\begin{columns}[T]
 	\column{0.5\linewidth}
-		\begin{minted}{arduino}
-			if(@\HighlightSpecial{condição}@){ações;}else{ações;}
-		\end{minted}
+	\centering
 		\includegraphics[width=\linewidth]{memeJackieChan.png}
+		{\small (como programador, é bom médico)}
 
 	\column{0.5\linewidth}
 		\begin{minted}{arduino}
-			if(@\HighlightSpecial{condição}@) {
+			if(@\Highlight{condição}@) {
 				ações;
 			}
 			else
-			if (@\HighlightSpecial{outra condição}@)
+			if (@\Highlight{outra condição}@)
 			{
 				ações;
-			} else {
-				ações;
-			}
+			} else { ações; }
 		\end{minted}
 	\end{columns}
 
@@ -267,17 +286,16 @@
 
 	Funções são definidas da seguinte forma.
 	\begin{minted}{arduino}
-		@\HighlightType{tipo\_de\_retorno}@ nome(@\HighlightSpecial{parâmetros}@) {
+		@\HighlightType{tipo\_de\_retorno}@ nome(@\Highlight{parâmetros}@) {
 			ações;
-			return @\HighlightSpecial{resultado}@;
+			return @\Highlight{resultado}@;
 		}
 	\end{minted}
 
 	\begin{itemize}
-		\item Parâmetros são variáveis declaradas separadas por vírgulas.
-		\item Se não houver parâmetros, pode-se deixar os parênteses vazios ou escrever \texttt{\textbf{void}}, tanto faz.
-		\item O tipo de retorno da função é o tipo do \HighlightSpecial{resultado} retornado com o comando \texttt{\textbf{return}}.
-		\item Se a função não retorna nada, então seu tipo de retorno é \texttt{\textbf{void}} e pode-se omitir o comando \texttt{\textbf{return}}.
+		\item O tipo de retorno da função é o tipo do \Highlight{resultado} retornado com o comando \texttt{\textbf{return}}.
+		\item Funções que não retornam valores têm tipo de retorno \HighlightType{void} e não precisam de \texttt{\textbf{return}} no final.
+		\item Parâmetros são variáveis/referências passados para a função. Referências permitem mudar variáveis no código que chama a função.
 	\end{itemize}
 
 \end{frame}
@@ -286,21 +304,6 @@
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
 	Exemplos:
-
-	\Sketch{bare minimum}
-
-	Todo programa para Arduino precisa definir estas duas funções.
-	\begin{description}
-		\item[\texttt{setup}] é executada uma só vez, logo no início.
-		\item[\texttt{loop}] é executada repetidamente após \texttt{\HighlightSpecial{setup}} retornar.
-	\end{description}
-
-\end{frame}
-
-
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
-
-	Exemplos (inventados):
 	\begin{columns}[t]
 	\column{0.5\linewidth}
 		\begin{minted}{arduino}
@@ -316,34 +319,37 @@
 
 	\column{0.5\linewidth}
 		\begin{minted}{arduino}
-			float media(float a, float b) {
-				return (a + b) / 2;
-			}
-		\end{minted}
-
-		\vspace{-\medskipamount}
-		\begin{minted}{arduino}
 			void troca(int& a, int& b) {
 				int aux = a;
 				a = b;
 				b = aux;
 			}
 		\end{minted}
+
+		\vspace{-\medskipamount}
+		\begin{minted}{arduino}
+			float media(float a, float b) {
+				return (a + b) / 2;
+			}
+		\end{minted}
 	\end{columns}
+
+	\vfill
+	Leitura interessante: \Link[What is a reference?]{https://isocpp.org/wiki/faq/references\#overview-refs}
 
 \end{frame}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Exemplos (inventados):
+	Exemplos:
 	\begin{minted}{arduino}
 		/* Descrição: verifica se <usuario> e <senha> são válidos.
 		 * Retorna:   true caso as credenciais sejam válidas;
 		 *            false caso contrário.
 		 */
-		bool checa_credenciais(String usuario, String senha) {
-			if (@\HighlightSpecial{usuario existe}@ && @\HighlightSpecial{senha correta para ele}@) {
+		bool checa_credenciais(String& usuario, String& senha) {
+			if (@\Highlight{usuario existe}@ && @\Highlight{senha correta para ele}@) {
 				return true;
 			}
 			else {
@@ -355,70 +361,14 @@
 \end{frame}
 
 
-\subsection{Utilidades do Arduino}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-
-	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt/} descreve todas.
-
-\end{frame}
-
-
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
-
-	Configura o pino especificado como entrada ou saída.
-	\begin{minted}{arduino}
-		void pinMode(byte pin, byte mode);
-	\end{minted}
-
-	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
-	\begin{description}
-		\item[\texttt{OUTPUT}] modo para escrita.
-		\item[\texttt{INPUT}] modo para leitura.
-%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
-	\end{description}
-
-\end{frame}
-
-
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
-
-	Aplica um nível lógico ao pino especificado.
-	\begin{minted}{arduino}
-		void digitalWrite(byte pin, byte val);
-	\end{minted}
-
-	O valor de \texttt{\textbf{val}} deve ser um destes abaixo.
-	\begin{description}
-		\item[\texttt{HIGH}] nível lógico alto
-		\item[\texttt{LOW}] nível lógico baixo
-	\end{description}
-
-\end{frame}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-
-	Também há várias constantes definidas para nos ajudar.
-	\begin{description}
-		\item[\texttt{PI}] A constante $\pi$.
-		\item[\texttt{EULER}] A constante $e$.
-		\item[\texttt{LED\_BUILTIN}] Pino digital com um LED conectado. Para nós, o pino 13.
-		\item[\texttt{...}] \emph{Muitas outras}.
-	\end{description}
-
-\end{frame}
-
-
 \subsection{Laços}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	A estrutura \textit{while} funciona como a de outras linguagens: ações dentro do laço são repetidas enquanto a condição for verdadeira.
+	A estrutura \emph{while} é similar em muitas linguagens: ações dentro do laço são repetidas enquanto a condição for verdadeira.
 	\begin{minted}{arduino}
-		while (@\HighlightSpecial{condição}@) {
+		while (@\Highlight{condição}@) {
 			ações;
 		}
 	\end{minted}
@@ -428,23 +378,23 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	A estrutura de um laço \textit{for} é esta:
+	A estrutura de um laço \emph{for} é esta:
 	\begin{minted}{arduino}
-		for (@\HighlightSpecial{inicialização}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+		for (@\Highlight{inicialização}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
 		}
 	\end{minted}
-	e equivale a este \textit{while}:
+	e equivale a este \emph{while}:
 	\begin{minted}{arduino}
-		@\HighlightSpecial{inicialização}@;
+		@\Highlight{inicialização}@;
 
-		while (@\HighlightSpecial{condição}@) {
+		while (@\Highlight{condição}@) {
 			ações;
-			@\HighlightSpecial{passo}@;
+			@\Highlight{passo}@;
 		}
 	\end{minted}
 
-	A inicialização pode incluir ou não uma \textbf{declaração} de variável.
+	A \Highlight{inicialização} pode incluir uma declaração de variável.
 
 \end{frame}
 
@@ -453,21 +403,24 @@
 
 	Se houver declaração, cria-se uma variável visível somente dentro do laço.
 	\begin{minted}{arduino}
-		for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+		for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor~inicial}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
 		}
 	\end{minted}
 
-	Se não houver, usa-se uma variável já declarada (precisa existir).
+	Se não houver, usa-se uma variável já declarada.
 	\begin{minted}{arduino}
 		@\HighlightType{tipo}@ nome;
 
 		// ...
 
-		for (nome = @\HighlightInit{valor\_inicial}@; @\HighlightSpecial{condição}@; @\HighlightSpecial{passo}@) {
+		for (nome = @\HighlightInit{valor~inicial}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
 		}
 	\end{minted}
+
+	\vfill
+	Leitura interessante: \Link[Escopo]{https://www.arduino.cc/reference/pt/language/variables/variable-scope-qualifiers/scope}
 
 \end{frame}
 
@@ -501,12 +454,137 @@
 		\end{minted}
 	\end{columns}
 
-%	\pause
-	Respondam: como seria um \textit{for} iterando sobre as potências de 2?
-%	\only<0|handout:2>{%
-%		R:\\
-%		\begin{minted}{arduino}
-%		\end{minted}%
-%	}
+	\vfill
+	Respondam: como seria um \emph{for} iterando sobre as potências de 2?
 
 \end{frame}
+
+
+\subsection{Vetores}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Vetores são sequências de variáveis do mesmo tipo.
+
+	\bigskip
+	Pode-se declarar a quantidade de elementos ou deixar que seja inferida a partir do inicializador.
+
+	\begin{minted}{arduino}
+		@\HighlightType{tipo}@ nome[@\Highlight{quantidade}@];
+	\end{minted}
+
+	\begin{minted}{arduino}
+		@\HighlightType{tipo}@ nome[@\Highlight{quantidade}@] = {@\HighlightInit{valores~iniciais}@};
+	\end{minted}
+
+	\begin{minted}{arduino}
+		@\HighlightType{tipo}@ nome[] = {@\HighlightInit{valores~iniciais}@};
+	\end{minted}
+
+	De toda forma, o tamanho de vetores é fixo e deve ser conhecido durante a compilação.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Exemplos:
+	\begin{minted}{arduino}
+		int pinos[] = {11, 12, 9};
+		pinos[2] = 13;
+		// Agora o vetor é {11, 12, 13}
+	\end{minted}
+
+	\begin{minted}{arduino}
+		const int numMedidas = 4;
+		float medidas[numMedidas];
+		float media = 0;
+
+		// [...] preenchendo
+		// Agora o vetor é {20.5, 18.9, 17, 19.25}
+
+		for (int i = 0; i < numMedidas; i += 1) {
+			media = media + medidas[i];
+		}
+		media = media / numMedidas;
+	\end{minted}
+
+\end{frame}
+
+
+\subsection{Utilidades do Arduino}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+
+	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt} descreve todas.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Todo programa para Arduino precisa definir estas duas funções.
+
+	\Sketch{bare minimum}
+
+	\begin{description}
+		\item[\texttt{setup}] executa uma só vez, quando a placa reinicia.
+		\item[\texttt{loop}] executa repetidamente após \texttt{\Highlight{setup}} retornar.
+	\end{description}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Configura o pino especificado como entrada ou saída.
+	\begin{minted}{arduino}
+		void pinMode(byte pin, byte mode);
+	\end{minted}
+
+	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
+	\begin{description}
+		\item[\texttt{OUTPUT}] modo para acionamento.
+		\item[\texttt{INPUT}] modo para leitura.
+%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
+	\end{description}
+
+	\vfill
+	Leitura interessante: \Link[Digital Pins]{https://www.arduino.cc/en/Tutorial/Foundations/DigitalPins}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Aplica um nível lógico ao pino especificado.
+	\begin{minted}{arduino}
+		void digitalWrite(byte pin, byte val);
+	\end{minted}
+
+	O valor de \texttt{\textbf{val}} deve ser um destes abaixo.
+	\begin{description}
+		\item[\texttt{HIGH}] nível lógico alto
+		\item[\texttt{LOW}] nível lógico baixo
+	\end{description}
+
+	\vfill
+	Leitura interessante: \Link[Circuito Digital]{https://pt.wikipedia.org/wiki/Circuito\_digital}
+
+\end{frame}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+
+	Também há várias constantes definidas para nos ajudar.
+	\begin{description}
+		\item[\texttt{PI}] A constante $\pi$.
+		\item[\texttt{EULER}] A constante $e$.
+		\item[\texttt{LED\_BUILTIN}] Pino conectado a um LED na placa. Para nós, o pino 13.
+		\item[\texttt{...}]
+	\end{description}
+
+\end{frame}
+

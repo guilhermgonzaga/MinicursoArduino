@@ -13,7 +13,7 @@
 \definecolor{ArduinoLightBrown}{HTML}{BCAC9A}
 \definecolor{ArduinoLightGrey}{HTML}{ECF1F1}
 \definecolor{ArduinoLightOrange}{HTML}{F29C2D}
-\definecolor{ArduinoLightTeal}{HTML}{62AEB2}
+\definecolor{ArduinoLightTeal}{HTML}{62AEB2} % Alternativa: 80CCCC
 
 
 % TEMA =================================
@@ -97,8 +97,7 @@
 \newcommand{\Email}[1]{\href{mailto:#1}{\texttt{#1}}}
 
 % Formatação de URLs; parâmetro opcional é o texto do hyperlink
-\newcommand{\Link}[2][]
-	{\href{#2}{\textcolor{ArduinoTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
+\newcommand{\Link}[2][]{\href{#2}{\textcolor{ArduinoTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
 
 % Preenchimento do endereço de sketches
 \newcommand{\SketchPath}[1]{{sketches/#1/#1.ino}} % Abstração do diretório local de sketches
@@ -107,7 +106,7 @@
 \newcommand{\Sketch}[1]{\inputminted[firstline=3]{arduino}{\SketchPath{#1}}}
 
 % Coloração de sintaxe de elementos especiais em código.
-\newcommand{\HighlightSpecial}[1]{\textbf{\textcolor{ArduinoOrange}{#1}}}
+\newcommand{\Highlight}[1]{\textbf{\textcolor{ArduinoOrange}{#1}}}
 
 % Coloração de sintaxe de valores iniciais de variáveis em código.
 \newcommand{\HighlightInit}[1]{\textbf{\textcolor{ArduinoBrown}{#1}}}
