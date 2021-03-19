@@ -3,7 +3,7 @@
 \section{Introdução à Linguagem}
 
 
-\begin{frame}{\insertsection}
+\begin{frame}[b]{\insertsection}
 
 	Arduino é programado em C++, mas quem conhecer qualquer linguagem baseada em C terá facilidade. Veremos só o básico para que vocês se virem.
 
@@ -45,16 +45,15 @@
 
 	\begin{description}
 		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}%; também chamado \texttt{\Highlight{boolean}}
-		\item[\texttt{char}] inteiro de 8 bits
+		\item[\texttt{char}] inteiro de 8 bits para representar caracteres
 		\item[\texttt{byte}] inteiro não negativo de 8 bits\Highlight{**}
 %		\item[\texttt{short}] inteiro de 16 bits\Highlight{*}
 		\item[\texttt{int}] inteiro de 16 bits\Highlight{*}
-%		\item[\texttt{word}] inteiro não negativo de 16 bits\Highlight{**}
 		\item[\texttt{long}] inteiro de 32 bits\Highlight{*}
 		\item[\texttt{float}] ponto flutuante de 32 bits
 %		\item[\texttt{double}] ponto flutuante de 32 bits\Highlight{*}
 		\item[\texttt{String}] texto\Highlight{**}
-		\item[\texttt{void}] tipo que significa "nada"; tem usos bem específicos
+		\item[\texttt{void}] tipo que significa \emph{vazio}; tem usos bem específicos
 		\item[\texttt{...}] \emph{tipos dedicados a cada sensor/módulo}
 	\end{description}
 
@@ -69,7 +68,7 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Variáveis \textbf{de inteiros} podem representar números não negativos se modificadas com \texttt{\Highlight{unsigned}}.
+	Variáveis \textbf{de inteiros} podem representar apenas números não negativos se modificadas com \texttt{\Highlight{unsigned}}.
 	\begin{minted}{arduino}
 		unsigned int natural = 10;
 		natural = -10;  @$\leftarrow$ \alert{NÃO PODE}@
@@ -130,7 +129,7 @@
 %			\texttt{\&\&~$\Longleftrightarrow$~and}\\
 %			\texttt{||~$\Longleftrightarrow$~or}\smallskip\\
 			\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} de inteiros e \textbf{real} de ponto flutuante.
-			\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~?=~b}} é o mesmo que \textbf{\texttt{a~=~a~?~b}}.
+			\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~\Highlight{?}=~b}} é o mesmo que \textbf{\texttt{a~=~a~\Highlight{?}~b}}.
 		\end{itemize}
 	\end{columns}
 
@@ -295,13 +294,13 @@
 	\begin{itemize}
 		\item O tipo de retorno da função é o tipo do \Highlight{resultado} retornado com o comando \texttt{\textbf{return}}.
 		\item Funções que não retornam valores têm tipo de retorno \HighlightType{void} e não precisam de \texttt{\textbf{return}} no final.
-		\item Parâmetros são variáveis/referências passados para a função. Referências permitem mudar variáveis no código que chama a função.
+		\item Parâmetros são variáveis/referências passados para a função. Referências permitem mudar variáveis do código que chama a função.
 	\end{itemize}
 
 \end{frame}
 
 
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
 	Exemplos:
 	\begin{columns}[t]
@@ -399,7 +398,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
 	Se houver declaração, cria-se uma variável visível somente dentro do laço.
 	\begin{minted}{arduino}
@@ -436,7 +435,7 @@
 			}
 		\end{minted}
 		\begin{minted}{arduino}
-			for (int i = n; i > 0; i--) {
+			for (int i = n-1; i >= 0; i--) {
 				ações;
 			}
 		\end{minted}
@@ -448,7 +447,7 @@
 			}
 		\end{minted}
 		\begin{minted}{arduino}
-			for (int i = 1; i < n; i += 2) {
+			for (char c = 'a'; c < 'z'; c++) {
 				ações;
 			}
 		\end{minted}
@@ -465,7 +464,7 @@
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
 
-	Vetores são sequências de variáveis do mesmo tipo.
+	Vetores são conjuntos de variáveis do mesmo tipo armazenadas em sequência.
 
 	\bigskip
 	Pode-se declarar a quantidade de elementos ou deixar que seja inferida a partir do inicializador.
@@ -537,7 +536,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
 	Configura o pino especificado como entrada ou saída.
 	\begin{minted}{arduino}
@@ -557,7 +556,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
 	Aplica um nível lógico ao pino especificado.
 	\begin{minted}{arduino}
@@ -579,12 +578,12 @@
 \begin{frame}{\insertsection: \insertsubsection}
 
 	Também há várias constantes definidas para nos ajudar.
-	\begin{description}
-		\item[\texttt{PI}] A constante $\pi$.
+	\begin{description}[\texttt{LED\_BUILTIN}] % Cópia do item mais longo
 		\item[\texttt{EULER}] A constante $e$.
+		\item[\texttt{PI}] A constante $\pi$.
+		\item[\texttt{TWO\_PI}] A constante $2\pi$.
 		\item[\texttt{LED\_BUILTIN}] Pino conectado a um LED na placa. Para nós, o pino 13.
 		\item[\texttt{...}]
 	\end{description}
 
 \end{frame}
-
