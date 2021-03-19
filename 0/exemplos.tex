@@ -3,10 +3,34 @@
 \section{Exemplos}
 
 
-\subsection{\textcolor{red}{TODO}}
+\subsection{\textit{Blink}}
+
+
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
+
+	\Sketch{blink}
+
+	\vfill
+	Documentação: \Link[\texttt{delay()}]{https://www.arduino.cc/reference/pt/language/functions/time/delay}, \Link[\texttt{delayMicroseconds()}]{https://www.arduino.cc/reference/pt/language/functions/time/delaymicroseconds}
+
+\end{frame}
 
 
 \begin{frame}{\insertsection: \insertsubsection}
 
+	\Circuit[width=\textwidth]{blink}
+
+\end{frame}
+
+
+\subsection{\textit{Blink} sem \textit{delay}}
+
+
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
+
+	\Sketch{blink sem delay}
+
+	\vfill
+	Documentação: \Link[\texttt{millis()}]{https://www.arduino.cc/reference/pt/language/functions/time/millis}, \Link[micros()]{https://www.arduino.cc/reference/pt/language/functions/time/micros}
 
 \end{frame}
