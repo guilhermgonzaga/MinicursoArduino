@@ -26,23 +26,25 @@
 \definecolor{alert}{named}{ArduinoLightOrange}
 \definecolor{example}{named}{ArduinoBrown}
 
-\setbeamercolor{block title}{bg=main!85!background, fg=background!50!white}
-\setbeamercolor{block body}{bg=main!8!background, fg=main!20!black}
-\setbeamercolor{block title alerted}{bg=alert, fg=background!50!white}
-\setbeamercolor{block body alerted}{bg=alert!8!background, fg=main!30!black}
-\setbeamercolor{block title example}{bg=example, fg=background!50!white}
-\setbeamercolor{block body example}{bg=example!9!background, fg=main!30!black}
+\setbeamercolor{block title}{bg=main!85!background,fg=background!50!white}
+\setbeamercolor{block body}{bg=main!8!background,fg=main!20!black}
+\setbeamercolor{block title alerted}{bg=alert,fg=background!50!white}
+\setbeamercolor{block body alerted}{bg=alert!8!background,fg=main!30!black}
+\setbeamercolor{block title example}{bg=example,fg=background!50!white}
+\setbeamercolor{block body example}{bg=example!9!background,fg=main!30!black}
 
-\setbeamercolor{normal text}{fg=black, bg=background}
+\setbeamercolor{normal text}{fg=black,bg=background}
 \setbeamercolor{itemize item}{fg=ArduinoOrange}
 \setbeamercolor{itemize subitem}{fg=ArduinoOrange}
 \setbeamercolor{enumerate item}{fg=ArduinoOrange!90!black}
 \setbeamercolor{enumerate subitem}{fg=ArduinoOrange!90!black}
 \setbeamercolor{description item}{fg=ArduinoOrange}
 \setbeamercolor{description subitem}{fg=ArduinoOrange}
+
+\setbeamerfont{frametitle}{size=\large}
 \setbeamerfont{footline}{size=\tiny}
 
-\setbeamersize{text margin left=0.4cm, text margin right=0.4cm}
+\setbeamersize{text margin left=0.4cm,text margin right=0.4cm}
 
 
 % PACOTES ==============================
@@ -99,6 +101,12 @@
 % Formatação de URLs; parâmetro opcional é o texto do hyperlink
 \newcommand{\Link}[2][]{\href{#2}{\textcolor{ArduinoTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
 
+% Preenchimento do endereço de circuitos de sketches
+\newcommand{\CircuitPath}[1]{sketches/#1/#1.pdf} % Abstração do diretório local de sketches
+
+% Inserir circuito de uma sketch
+\newcommand{\Circuit}[2][]{\includegraphics[#1]{\CircuitPath{#2}}}
+
 % Preenchimento do endereço de sketches
 \newcommand{\SketchPath}[1]{{sketches/#1/#1.ino}} % Abstração do diretório local de sketches
 
@@ -140,7 +148,7 @@
 \subtitle{Minicurso de Arduino}
 \author{}
 \institute[Facom/UFMS]{\vspace{-\bigskipamount}
-	\begin{columns}[c, onlytextwidth]
+	\begin{columns}[c,onlytextwidth]
 		\column{0.6\linewidth}
 			Faculdade de Computação -- Facom\bigskip\\
 			Universidade Federal de Mato Grosso do Sul -- UFMS
