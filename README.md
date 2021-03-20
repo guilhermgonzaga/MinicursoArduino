@@ -19,11 +19,14 @@ O material foi produzido em LaTeX/Beamer com o tema [Focus](https://github.com/e
 
 As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes no diretório raiz do projeto.
 
-### Aula 0 (opcional)
+### Aula 0 (opcional) -- Preparação
 
 - Descrição do Arduino Mega 2560
 - Ambiente de desenvolvimento (Arduino IDE)
 - Introdução à Linguagem (C++)
+- Exemplos:
+	+ *Blink*
+	+ *Blink* sem delay
 
 
 ## Geração dos slides

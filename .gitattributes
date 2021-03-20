@@ -3,11 +3,9 @@
 # Normalização dos finais de linha.
 * text=auto
 
-# Declare arquivos cujos finais de linha devem ser sempre os mesmos.
-#*. text eol=
-
 # Declare arquivos binários (e que não devem ser normalizados).
 *.eps binary
+*.fzz binary
 *.jpg binary
 *.pdf binary
 *.png binary
