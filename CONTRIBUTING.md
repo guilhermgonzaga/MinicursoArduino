@@ -13,10 +13,11 @@
 	\end{minted}
 	```
 
+	Não se esqueça de marcar o *frame* de código como `fragile`.
 
 ## Formatação dos Arquivos de Texto
 
-Considere que *tabs* são configuradas para dois espaços para contar colunas.
+Considere que *tabs* valem dois espaços para contar colunas.
 
 |Tipo           |Indentação|*Wrapping*|Máx.<br>colunas|
 |:-------------:|:--------:|:--------:|:-------------:|
@@ -25,7 +26,6 @@ Considere que *tabs* são configuradas para dois espaços para contar colunas.
 |Outros         |--        |*Hard*    |80             |
 
 Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da indentação no pacote Minted.
-
 
 ## Paleta de Cores
 
@@ -42,11 +42,11 @@ Obs.: arquivos `.ino` usam *tabs* para que se possa configurar a largura da inde
 |`#F29C2D`|![#F29C2D](https://placehold.it/15/F29C2D/000000?text=+)|ArduinoLightOrange|
 |`#62AEB2`|![#62AEB2](https://placehold.it/15/62AEB2/000000?text=+)|ArduinoLightTeal  |
 
-
 ## TODO
 
 As melhorias listadas serão bem-vindas.
 
-- [ ] Encontrar forma de copiar trechos de código dos slides sem perder a formatação.
-- [ ] Introdução à estrutura `switch` na aula 0
-- [ ] Experimentar [`latexindent.pl`](https://github.com/cmhughes/latexindent.pl) ou afim para manter consistência de estilo no código LaTeX.
+- [ ] Encontrar forma de obter trechos de código dos slides sem perder a indentação.
+- [ ] Introdução à estrutura `switch` na aula 0.
+- [ ] Conteúdo sobre DHT11/DHT22 com média móvel ou filtro das medidas.
+- [ ] Ensinar a usar EEPROM na aula 3.

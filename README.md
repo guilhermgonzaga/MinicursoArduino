@@ -2,32 +2,69 @@
 
 # MinicursoArduino
 
-[![Build Slides][gh-slides-badge]][gh-actions]
-[![Compile Sketches][gh-sketches-badge]][gh-actions]
+[![Build Slides](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg)][gh-actions]
+[![Compile Sketches](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Compile%20Sketches/badge.svg)][gh-actions]
 
-[gh-slides-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg
-[gh-sketches-badge]: https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Compile%20Sketches/badge.svg
-[gh-actions]:     https://github.com/guilhermgonzaga/MinicursoArduino/actions
-
+[gh-actions]: https://github.com/guilhermgonzaga/MinicursoArduino/actions
 
 **[Em produção]** Material para um minicurso voltado aos ingressantes de Engenharia de Computação na Universidade Federal de Mato Grosso do Sul (UFMS).
 
 O material foi produzido em LaTeX/Beamer com o tema [Focus](https://github.com/elauksap/focus-beamertheme).
 
+## Ementa Planejada
 
-## Ementa
+As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes no diretório raiz do projeto. As caixas de seleção mostram o que já está pronto.
 
-As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes no diretório raiz do projeto.
+### Aula 0 -- Preparação
 
-### Aula 0 (opcional) -- Preparação
-
-- Descrição do Arduino Mega 2560
-- Ambiente de desenvolvimento (Arduino IDE)
-- Introdução à Linguagem (C++)
-- Exemplos:
+- [x] Arduino Mega 2560
+- [x] Ambiente de desenvolvimento (Arduino IDE)
+- [x] Introdução à Linguagem (C++)
+- [x] Utilidades do Arduino:
+	+ `pinMode` e `digitalWrite()`
+	+ Constantes
+- [x] Exemplos:
 	+ *Blink*
 	+ *Blink* sem delay
 
+### Aula 1 -- Eletrônica Digital
+
+- [x] `String`
+- [ ] `Serial`
+	+ Envio de dados
+	+ Leitura de dados
+	+ `serialEvent()`
+- [ ] Exemplos:
+	+ *Oi, Fulano!* via Serial
+- [ ] Funcionamento de uma protoboard
+- [ ] Revisão de eletrônica:
+	+ Diferença de Potencial
+	+ Níveis lógicos
+	+ Resistor e código de cores
+	+ LED/diodo (ânodo e cátodo)
+- [ ] Utilidades do Arduino: `digitalRead()`
+- [ ] Botão (*pushbutton*)
+- [ ] Exemplo: Semáforo com botão
+
+### Aula 2 -- Eletrônica "Analógica"
+
+- [ ] Revisão de eletrônica:
+	+ Sinais analógicos e digitais
+- [ ] Utilidades do Arduino: `analogRead()`
+- [ ] Potenciômetro e LDR
+- [ ] Exemplos:
+	+ Fazer PWM com *bit-banging* (https://www.arduino.cc/en/pmwiki.php?n=Tutorial/SecretsOfArduinoPWM)
+	+ *Serial plotter* com `analogRead()`
+	+ Controle de luminosidade do LED com PWM (explicar o motivo do PWM)
+	+ Buzzer
+
+### Aula 3
+
+- [ ] Revisão de eletrônica:
+	+ *Pull-up* e *pull-down*
+- [ ] Sensor de distância HC-SR04 (medidas com média móvel ou filtro)
+- [ ] Servomotor
+- [ ] Módulo LCD 16x2
 
 ## Geração dos slides
 
@@ -40,7 +77,7 @@ O Latexmk cuida de todo o processo de geração, inclusive compila várias vezes
 Para gerar os slides, são necessárias as seguintes ferramentas no ambiente.
 
 `latexmk`, `pdflatex`
-: Uma distribuição LaTeX de sua preferência. Este material é produzido com [MiKTeX](https://miktex.org/) no Windows e [TeX Live](https://www.tug.org/texlive/) no Linux. É necessário o TeX Live 2018 ou mais recente, pois anteriores não trazem o tema usado nos slides.
+: Uma distribuição LaTeX de sua preferência. Este material é produzido com MiKTeX no Windows e TeX Live no Linux. É necessário o TeX Live 2018 ou mais recente, pois anteriores não trazem o tema usado nos slides.
 
 `perl`
 : Perl, dependência de Latexmk.
@@ -86,7 +123,6 @@ Veja mais opções de linha de comando na documentação do Latexmk (em [PDF](ht
 	...
 	\end{frame}
 	```
-
 
 ## Contribuindo com o material
 
