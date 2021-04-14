@@ -21,7 +21,7 @@
 \end{frame}
 
 
-\subsection{Variáveis e tipos}
+\subsection{Tipos de Dados e Operadores}
 
 
 \begin{frame}[fragile]{\insertsection: \insertsubsection}
@@ -44,7 +44,7 @@
 	Estes tipos são suficientes para nós. Veja todos na \Link[documentação]{https://www.arduino.cc/reference/pt}.
 
 	\begin{description}
-		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}%; também chamado \texttt{\Highlight{boolean}}
+		\item[\texttt{bool}] guarda \textbf{\texttt{true}} ou \textbf{\texttt{false}}
 		\item[\texttt{char}] inteiro de 8 bits para representar caracteres
 		\item[\texttt{byte}] inteiro não negativo de 8 bits\Highlight{**}
 %		\item[\texttt{short}] inteiro de 16 bits\Highlight{*}
@@ -96,9 +96,6 @@
 \end{frame}
 
 
-\subsection{Operadores}
-
-
 \begin{frame}{\insertsection: \insertsubsection}
 
 	\begin{columns}[b]
@@ -125,10 +122,6 @@
 
 	\column{0.49\linewidth}
 		\begin{itemize}
-%			\item[] Também há \Link[representações alternativas]{https://pt.cppreference.com/w/cpp/language/operator\_alternative} para alguns.\\
-%			\texttt{~!~$\Longleftrightarrow$~not}\\
-%			\texttt{\&\&~$\Longleftrightarrow$~and}\\
-%			\texttt{||~$\Longleftrightarrow$~or}\smallskip\\
 			\item[\textbf{*}] O operador \textbf{\texttt{/}} faz divisão \textbf{truncada} de inteiros e \textbf{real} de ponto flutuante.
 			\item[\textbf{**}] Uma atribuição do tipo \textbf{\texttt{a~\Highlight{?}=~b}} é o mesmo que \textbf{\texttt{a~=~a~\Highlight{?}~b}}.
 		\end{itemize}
@@ -144,7 +137,7 @@
 %
 %		\begin{minted}{arduino}
 %			int a = 5, b = 2;
-%			a = a + b;  // Mesmo que a += b;
+%			a = a + b;  // O mesmo que a += b;
 %		\end{minted}
 %
 %	\column{0.33\linewidth}
@@ -512,82 +505,5 @@
 		}
 		media = media / numMedidas;
 	\end{minted}
-
-\end{frame}
-
-
-\subsection{Utilidades do Arduino}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-
-	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt} descreve todas.
-
-\end{frame}
-
-
-\begin{frame}[fragile]{\insertsection: \insertsubsection}
-
-	Todo programa para Arduino precisa definir estas duas funções.
-
-	\Sketch{bare minimum}
-
-	\begin{description}
-		\item[\texttt{setup}] executa uma só vez, quando a placa reinicia.
-		\item[\texttt{loop}] executa repetidamente após \texttt{\Highlight{setup}} retornar.
-	\end{description}
-
-\end{frame}
-
-
-\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
-
-	Configura o pino especificado como entrada ou saída.
-	\begin{minted}{arduino}
-		void pinMode(byte pin, byte mode);
-	\end{minted}
-
-	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
-	\begin{description}
-		\item[\texttt{OUTPUT}] modo para acionamento.
-		\item[\texttt{INPUT}] modo para leitura.
-%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
-	\end{description}
-
-	\vfill
-	Leitura interessante: \Link[Digital Pins]{https://www.arduino.cc/en/Tutorial/Foundations/DigitalPins}
-
-\end{frame}
-
-
-\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
-
-	Aplica um nível lógico ao pino especificado.
-	\begin{minted}{arduino}
-		void digitalWrite(byte pin, byte val);
-	\end{minted}
-
-	O valor de \texttt{\textbf{val}} deve ser um destes abaixo.
-	\begin{description}
-		\item[\texttt{HIGH}] nível lógico alto
-		\item[\texttt{LOW}] nível lógico baixo
-	\end{description}
-
-	\vfill
-	Leitura interessante: \Link[Circuito Digital]{https://pt.wikipedia.org/wiki/Circuito\_digital}
-
-\end{frame}
-
-
-\begin{frame}{\insertsection: \insertsubsection}
-
-	Também há várias constantes definidas para nos ajudar.
-	\begin{description}[\texttt{LED\_BUILTIN}] % Cópia do item mais longo
-		\item[\texttt{EULER}] A constante $e$.
-		\item[\texttt{PI}] A constante $\pi$.
-		\item[\texttt{TWO\_PI}] A constante $2\pi$.
-		\item[\texttt{LED\_BUILTIN}] Pino conectado a um LED na placa. Para nós, o pino 13.
-		\item[\texttt{...}]
-	\end{description}
 
 \end{frame}

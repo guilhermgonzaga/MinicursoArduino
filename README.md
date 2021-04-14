@@ -15,33 +15,36 @@ O material foi produzido em LaTeX/Beamer com o tema [Focus](https://github.com/e
 
 As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes no diretório raiz do projeto. As caixas de seleção mostram o que já está pronto.
 
-### Aula 0 -- Preparação
+### Aula 0 -- Introdução
 
 - [x] Arduino Mega 2560
 - [x] Ambiente de desenvolvimento (Arduino IDE)
 - [x] Introdução à Linguagem (C++)
+	+ Tipos de dados e operadores
+	+ Estruturas de controle
+	+ Funções
 - [x] Utilidades do Arduino:
+	+ `String`
 	+ `pinMode` e `digitalWrite()`
 	+ Constantes
 - [x] Exemplos:
 	+ *Blink*
 	+ *Blink* sem delay
+- [ ] Utilidades do Arduino:
+	+ Comunicação via `Serial`
+	+ `serialEvent()`
+- [ ] Exemplos:
+	+ Comunicação via Serial
 
 ### Aula 1 -- Eletrônica Digital
 
-- [x] `String`
-- [ ] `Serial`
-	+ Envio de dados
-	+ Leitura de dados
-	+ `serialEvent()`
-- [ ] Exemplos:
-	+ *Oi, Fulano!* via Serial
 - [ ] Funcionamento de uma protoboard
 - [ ] Revisão de eletrônica:
 	+ Diferença de Potencial
 	+ Níveis lógicos
-	+ Resistor e código de cores
 	+ LED/diodo (ânodo e cátodo)
+	+ Resistor e código de cores
+	+ *Pull-up* e *pull-down*
 - [ ] Utilidades do Arduino: `digitalRead()`
 - [ ] Botão (*pushbutton*)
 - [ ] Exemplo: Semáforo com botão
@@ -53,18 +56,20 @@ As aulas são simplesmente enumeradas a partir de 0, com pastas correspondentes 
 - [ ] Utilidades do Arduino: `analogRead()`
 - [ ] Potenciômetro e LDR
 - [ ] Exemplos:
-	+ Fazer PWM com *bit-banging* (https://www.arduino.cc/en/pmwiki.php?n=Tutorial/SecretsOfArduinoPWM)
+	+ Fazer PWM *bit-banging* (https://www.arduino.cc/en/pmwiki.php?n=Tutorial/SecretsOfArduinoPWM)
 	+ *Serial plotter* com `analogRead()`
 	+ Controle de luminosidade do LED com PWM (explicar o motivo do PWM)
 	+ Buzzer
 
 ### Aula 3
 
-- [ ] Revisão de eletrônica:
-	+ *Pull-up* e *pull-down*
 - [ ] Sensor de distância HC-SR04 (medidas com média móvel ou filtro)
 - [ ] Servomotor
 - [ ] Módulo LCD 16x2
+
+### Aula 4 -- Simuladores e Ferramentas
+
+A definir. O objetivo será mostrar componentes que não há em quantidade suficiente no laboratório.
 
 ## Geração dos slides
 

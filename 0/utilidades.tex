@@ -1,0 +1,155 @@
+\section{Utilidades do Arduino}
+
+
+\begin{frame}{\insertsection}
+
+	A plataforma Arduino define várias utilidades, que vamos ver conforme necessário. A \Link[documentação]{https://www.arduino.cc/reference/pt} descreve todas.
+
+\end{frame}
+
+
+\subsection{\texttt{String}}
+
+
+\begin{frame}[b]{\insertsection: \insertsubsection}
+
+	A linguagem que usamos (C++) não possui suporte "nativo"\@ (\textit{built-in}) para strings. Portanto, em ambientes limitados, como microcontroladores, é necessário trabalhar de forma mais primitiva, usando \Link[cadeias de caracteres]{https://www.arduino.cc/reference/pt/language/variables/data-types/string}.
+
+	\medskip
+	Por esse motivo, criou-se a classe auxiliar \Highlight{\texttt{String}}, que facilita manipular texto dando suporte a operações comuns, como busca, comparação e concatenação.
+
+	\vfill
+	Documentação: \Link[\texttt{String}]{https://www.arduino.cc/reference/pt/language/variables/data-types/stringobject}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Há diversas formas de inicializar uma \texttt{String}.
+
+	\begin{minted}{arduino}
+		String s1 = "um texto";          // com cadeia de caracteres
+		String s2 = s1 + " mais longo";  // concatenando duas strings
+		String s3 = String('a');         // com char
+	\end{minted}
+
+	\begin{minted}{arduino}
+		String s4 = String(3.14, 2); // com float e precisão opcional
+		String s5 = String(42);      // com int/long; representação decimal
+		String s6 = String(42, BIN); // com int/long; representação binária
+		String s7 = String(42, HEX); // com int/long; representação hexadecimal
+	\end{minted}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	E várias operações a se fazer.
+
+	\begin{minted}{arduino}
+		s2.startsWith(s1);  // Retorna true
+		s2.startsWith(s3);  // Retorna false
+	\end{minted}
+
+	\begin{minted}{arduino}
+		s2.substring(3);     // Retorna "texto mais longo"
+		s2.substring(3, 7);  // Retorna "text" (o final é excluído)
+	\end{minted}
+
+	\begin{minted}{arduino}
+		s4.toFloat();  // Retorna 3.14
+		s5.toInt();    // Retorna 42 (traduz apenas decimal)
+	\end{minted}
+
+	\begin{minted}{arduino}
+		String verso = "a sapa na lava a pa";
+		verso.replace('a', 'e');
+		// Agora verso vale "e sepe ne leve e pe"
+	\end{minted}
+
+\end{frame}
+
+
+\subsection{Constantes Úteis}
+
+
+\begin{frame}{\insertsection: \insertsubsection}
+
+	Há várias constantes definidas para auxiliar durante a programação.
+	\begin{description}[\texttt{LED\_BUILTIN}] % Cópia do item mais longo
+		\item[\texttt{EULER}] A constante $e$.
+		\item[\texttt{PI}] A constante $\pi$.
+		% \item[\texttt{TWO\_PI}] A constante $2\pi$.
+		\item[\texttt{LOW}] Nível lógico baixo (0).
+		\item[\texttt{HIGH}] Nível lógico alto (1).
+		\item[\texttt{LED\_BUILTIN}] Pino conectado a um LED na placa. Para nós, o pino 13.
+		\item[\texttt{...}]
+	\end{description}
+
+\end{frame}
+
+
+\subsection{Funções Especiais}
+
+
+\begin{frame}[fragile]{\insertsection: \insertsubsection}
+
+	Todo programa para Arduino precisa definir estas duas funções.
+
+	\begin{minted}{arduino}
+		void setup() {
+
+		}
+
+		void loop() {
+
+		}
+	\end{minted}
+
+	\begin{description}
+		\item[\texttt{setup}] executa uma só vez, quando a placa reinicia.
+		\item[\texttt{loop}] executa repetidamente após \texttt{\Highlight{setup}} retornar.
+	\end{description}
+
+\end{frame}
+
+
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
+
+	Configura o pino especificado como entrada ou saída.
+	\begin{minted}{arduino}
+		void pinMode(byte pin, byte mode);
+	\end{minted}
+
+	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
+	\begin{description}
+		\item[\texttt{OUTPUT}] modo para acionamento.
+		\item[\texttt{INPUT}] modo para leitura.
+%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
+	\end{description}
+
+	\vfill
+	Leitura interessante: \Link[Digital Pins]{https://www.arduino.cc/en/Tutorial/Foundations/DigitalPins}
+
+\end{frame}
+
+
+\begin{frame}[b,fragile]{\insertsection: \insertsubsection}
+
+	Aplica um nível lógico ao pino especificado.
+	\begin{minted}{arduino}
+		void digitalWrite(byte pin, byte val);
+	\end{minted}
+
+	O valor de \texttt{\textbf{val}} deve ser um destes abaixo.
+	\begin{description}
+		\item[\texttt{HIGH}] nível lógico alto
+		\item[\texttt{LOW}] nível lógico baixo
+	\end{description}
+
+	\vfill
+	Leitura interessante: \Link[Circuito Digital]{https://pt.wikipedia.org/wiki/Circuito\_digital}
+
+\end{frame}
