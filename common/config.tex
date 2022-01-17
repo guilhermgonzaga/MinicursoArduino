@@ -52,7 +52,7 @@
 
 \usepackage[brazilian]{babel}
 \usepackage[type={CC},modifier={zero},version={1.0},lang=brazilian]{doclicense}
-\usepackage[cache=false,draft,section]{minted} % XXX: remover draft no final
+\usepackage[section]{minted}
 \usepackage{graphicx}
 \usepackage{multirow}
 
@@ -85,10 +85,10 @@
 \AtBeginSection{}
 \AtEndDocument{\FinalFrame}
 
-% Diretórios de imagens comum e local, respectivamente.
+% Diretórios comum e local de imagens (respectivamente)
 \graphicspath{{../common/graphics/}{graphics/}}
 
-% Aumenta o espaçamento entre linhas de tabelas em 10%.
+% Aumenta o espaçamento entre linhas de tabelas em 10%
 \renewcommand{\arraystretch}{1.1}
 
 
@@ -101,25 +101,22 @@
 % Formatação de URLs; parâmetro opcional é o texto do hyperlink
 \newcommand{\Link}[2][]{\href{#2}{\textcolor{ArduinoTeal}{\ifthenelse{\equal{#1}{}}{\texttt{#2}}{#1}}}}
 
-% Preenchimento do endereço de circuitos de sketches
-\newcommand{\CircuitPath}[1]{sketches/#1/#1.pdf} % Abstração do diretório local de sketches
+% Abstrai o caminho de uma sketch a partir da raiz do documento
+\newcommand{\SketchBasename}[1]{sketches/#1/#1}
 
-% Inserir circuito de uma sketch
-\newcommand{\Circuit}[2][]{\includegraphics[#1]{\CircuitPath{#2}}}
+% Insere o código de uma sketch e ignora as linhas do identificador SPDX
+\newcommand{\SketchCode}[1]{\inputminted[firstline=3]{arduino}{\SketchBasename{#1}.ino}}
 
-% Preenchimento do endereço de sketches
-\newcommand{\SketchPath}[1]{{sketches/#1/#1.ino}} % Abstração do diretório local de sketches
+% Insere o diagrama de uma sketch e repassa opções para includegraphics
+\newcommand{\SketchDiagram}[2][]{\includegraphics[#1]{\SketchBasename{#2}.pdf}}
 
-% Inserir sketch e ignorar as linhas do identificador SPDX
-\newcommand{\Sketch}[1]{\inputminted[firstline=3]{arduino}{\SketchPath{#1}}}
-
-% Coloração de sintaxe de elementos especiais em código.
+% Coloração de sintaxe de elementos especiais em código
 \newcommand{\Highlight}[1]{\textbf{\textcolor{ArduinoOrange}{#1}}}
 
-% Coloração de sintaxe de valores iniciais de variáveis em código.
+% Coloração de sintaxe de valores iniciais de variáveis em código
 \newcommand{\HighlightInit}[1]{\textbf{\textcolor{ArduinoBrown}{#1}}}
 
-% Coloração de sintaxe de tipos de variáveis em código.
+% Coloração de sintaxe de tipos de variáveis em código
 \newcommand{\HighlightType}[1]{\texttt{\textcolor{ArduinoTeal}{#1}}}
 
 % Último frame de cada apresentação predefinido
@@ -144,7 +141,7 @@
 % METADADOS ============================
 
 
-% O título será definido em cada slide, não aqui
+% O título será definido em cada slide
 \subtitle{Minicurso de Arduino}
 \author[Estudantes de E.C. da UFMS]{}
 \institute{%

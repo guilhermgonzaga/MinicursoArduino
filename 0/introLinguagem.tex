@@ -54,7 +54,7 @@
 %		\item[\texttt{double}] ponto flutuante de 32 bits\Highlight{*}
 		\item[\texttt{String}] texto\Highlight{**}
 		\item[\texttt{void}] tipo que significa \emph{vazio}; tem usos bem específicos
-		\item[\texttt{...}] \emph{tipos dedicados a cada sensor/módulo}
+		\item[\texttt{\textellipsis}] \emph{tipos dedicados a cada sensor/módulo}
 	\end{description}
 
 	\vfill
@@ -101,22 +101,23 @@
 	\begin{columns}[b]
 	\column{0.51\linewidth}
 		\begin{block}{\centering Alguns dos operadores de C++\\{\small Precedência decrescente}}
-			% Note as sequências '\ ' entre operadores para aumentar o espaçamento
+			% A sequência '\ ' entre operadores aumenta o espaço entre eles
+			% A sequência '\/' transpassa operadores <<, >> e -- para evitar ligaduras do LuaTeX
 			\begin{tabular}{cl}
-				Unários      & \multirow{2}{*}{\texttt{++ \ {-}{-} \ [] \ .}} \\
-				pós-fixados  &                                                \\ \hline
-				Unários      & \texttt{++ \ {-}{-} \ + \ -}                   \\
-				prefixados   & \texttt{(\textbf{\HighlightType{tipo}}) \ !}   \\ \hline
-				Multiplicativos\Highlight{*} & \texttt{* \ / \ \%}            \\ \hline
-				Aditivos     & \texttt{+ \ -}                                 \\ \hline
-				Deslocamento & \texttt{{<}{<} \ {>}{>}}                       \\ \hline
-				Relacionais  & \texttt{< \ > \ <= \ >=}                       \\ \hline
-				Igualdade    & \texttt{== \ !=}                               \\ \hline
-%				Bit-a-bit    & \texttt{\& \ $\wedge$ \ |}                     \\ \hline
-				Lógicos      & \texttt{\&\& \ ||}                             \\ \hline
-%				Condicionais & \texttt{?:}                                    \\ \hline
+				Unários      & \multirow{2}{*}{\texttt{++ \ -\/- \ []}}     \\
+				pós-fixados  &                                              \\ \hline
+				Unários      & \texttt{++ \ -\/- \ + \ -}                   \\
+				prefixados   & \texttt{(\textbf{\HighlightType{tipo}}) \ !} \\ \hline
+				Multiplicativos\Highlight{*} & \texttt{* \ / \ \%}          \\ \hline
+				Aditivos     & \texttt{+ \ -}                               \\ \hline
+%				Deslocamento & \texttt{<\/< \ >\/>}                         \\ \hline
+				Relacionais  & \texttt{< \ > \ <= \ >=}                     \\ \hline
+				Igualdade    & \texttt{== \ !=}                             \\ \hline
+%				Bit-a-bit    & \texttt{\& \ $\wedge$ \ |}                   \\ \hline
+				Lógicos      & \texttt{\&\& \ ||}                           \\ \hline
+%				Condicionais & \texttt{?:}                                  \\ \hline
 				\multirow{2}{*}{Atribuição\Highlight{**}} & \texttt{= \ *= \ /= \ \%=} \\
-				             & \texttt{+= -= <{<}= >{>}=}                     \\ %\hline
+				             & \texttt{+= -= <\/<= >\/>=}                   \\ %\hline
 			\end{tabular}
 		\end{block}
 
@@ -233,7 +234,7 @@
 
 	\column{0.44\linewidth}
 		\begin{minted}{arduino}
-			if (@\Highlight{condição}@) {
+			if (@\Highlight{uma condição}@) {
 				ações;
 			} else if (@\Highlight{outra condição}@) {
 				ações;
@@ -405,7 +406,7 @@
 	\begin{minted}{arduino}
 		@\HighlightType{tipo}@ nome;
 
-		// ...
+		// [...]
 
 		for (nome = @\HighlightInit{valor~inicial}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
@@ -487,18 +488,18 @@
 
 	Exemplos:
 	\begin{minted}{arduino}
-		int pinos[] = {11, 12, 9};
+		int pinos[] = {11, 12, 9};  // Tamanho: 3
 		pinos[2] = 13;
 		// Agora o vetor é {11, 12, 13}
 	\end{minted}
 
 	\begin{minted}{arduino}
 		const int numMedidas = 4;
-		float medidas[numMedidas];
+		float medidas[numMedidas] = {0};  // Inicializado com zeros
 		float media = 0;
 
-		// [...] preenchendo
-		// Agora o vetor é {20.5, 18.9, 17, 19.25}
+		// Preenchendo o vetor com medidas...
+		// Agora o vetor é {20.5, 18.87, 18, 19.25}
 
 		for (int i = 0; i < numMedidas; i += 1) {
 			media = media + medidas[i];
