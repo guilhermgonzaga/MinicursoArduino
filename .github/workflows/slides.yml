@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: CC0-1.0
 
-name: Build Slides
-
+name: Build and Release Slides
 on:
   push:
     paths:
@@ -13,20 +12,31 @@ on:
       - '.latexmkrc'
       - 'common/**'
       - '[0-9]/**'
+    tags-ignore: ['**']
 
-# A workflow is made up of one or more jobs that run sequentially or in parallel
 jobs:
-  build-texlive:
-    name: Build slides with TeX Live
+  build-and-release-if-tag:
+    name: Build slides; Release if run on tag push
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed for release action
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Build all slides with latexmk
+      - name: Build slides with TeX Live and Latexmk
         uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
             apk add py-pygments
-            latexmk
+            latexmk -verbose
+
+      - name: Release generated slides if run on tag push
+        if: github.ref_type == 'tag' && success()
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: false
+          files: '[0-9]/[0-9].pdf'
+          # name: ${{ github.ref_name }}
