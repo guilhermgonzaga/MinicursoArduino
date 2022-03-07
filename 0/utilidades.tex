@@ -15,10 +15,10 @@
 
 \begin{frame}[b]{\insertsection: \insertsubsection}
 
-	A linguagem que usamos (C++) não possui suporte "nativo"\@ (\textit{built-in}) para strings. Portanto, em ambientes limitados, como microcontroladores, é necessário trabalhar de forma mais primitiva, usando \Link[cadeias de caracteres]{https://www.arduino.cc/reference/pt/language/variables/data-types/string}.
+	A linguagem que usamos (C++) não possui suporte "nativo"\@ (\textit{built-in}) para strings. Portanto, em ambientes limitados, como microcontroladores, é necessário trabalhar de forma mais primitiva, usando \Link[vetores de caracteres]{https://www.arduino.cc/reference/pt/language/variables/data-types/string}.
 
 	\medskip
-	Por esse motivo, criou-se a classe auxiliar \Highlight{\texttt{String}}, que facilita manipular texto dando suporte a operações comuns, como busca, comparação e concatenação.
+	Por esse motivo existe a classe \Highlight{\texttt{String}}, que dá suporte a operações comuns --- busca, concatenação, remoção etc..
 
 	\vfill
 	Documentação: \Link[\texttt{String}]{https://www.arduino.cc/reference/pt/language/variables/data-types/stringobject}
@@ -31,7 +31,7 @@
 	Há diversas formas de inicializar uma \texttt{String}.
 
 	\begin{minted}{arduino}
-		String s1 = "um texto";          // com cadeia de caracteres
+		String s1 = "um texto";          // com uma literal
 		String s2 = s1 + " mais longo";  // concatenando duas strings
 		String s3 = String('a');         // com char
 	\end{minted}
@@ -120,16 +120,16 @@
 
 \begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
-	Configura o pino especificado como entrada ou saída.
+	Configura o pino especificado para um de dois possíveis usos: leitura ou acionamento.
 	\begin{minted}{arduino}
 		void pinMode(byte pin, byte mode);
 	\end{minted}
 
 	O valor de \texttt{\textbf{mode}} deve ser um destes abaixo.
 	\begin{description}
-		\item[\texttt{OUTPUT}] modo para acionamento.
-		\item[\texttt{INPUT}] modo para leitura.
-%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com resistor de pull-up interno.
+		\item[\texttt{INPUT}] modo de leitura (entrada).
+		\item[\texttt{OUTPUT}] modo de acionamento (saída).
+%		\item[\texttt{INPUT\_PULLUP}] modo para leitura com pull-up interno ativo.
 	\end{description}
 
 	\vfill
@@ -140,7 +140,7 @@
 
 \begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
-	Aplica um nível lógico ao pino especificado.
+	Define o nível lógico aplicado ao pino especificado.
 	\begin{minted}{arduino}
 		void digitalWrite(byte pin, byte val);
 	\end{minted}

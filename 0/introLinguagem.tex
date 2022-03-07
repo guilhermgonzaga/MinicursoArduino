@@ -33,7 +33,7 @@
 
 	Também é possível inicializar uma variável na declaração.
 	\begin{minted}{arduino}
-		@\HighlightType{tipo}@ nome = @\HighlightInit{valor~inicial}@;
+		@\HighlightType{tipo}@ nome = @\HighlightInit{valor}@;
 	\end{minted}
 
 \end{frame}
@@ -255,11 +255,12 @@
 	\column{0.5\linewidth}
 	\centering
 		\includegraphics[width=\linewidth]{memeJackieChan.png}
-		{\small (como programador, é bom médico)}
+%		{\small (como programador, é bom médico)}
 
 	\column{0.5\linewidth}
+		\bigskip\\
 		\begin{minted}{arduino}
-			if(@\Highlight{condição}@) {
+			if(@\Highlight{uma condição}@) {
 				ações;
 			}
 			else
@@ -395,9 +396,9 @@
 
 \begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
-	Se houver declaração, cria-se uma variável visível somente dentro do laço.
+	Se houver declaração, cria-se uma variável exclusivamente do laço.
 	\begin{minted}{arduino}
-		for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor~inicial}@; @\Highlight{condição}@; @\Highlight{passo}@) {
+		for (@\HighlightType{tipo}@ nome = @\HighlightInit{valor}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
 		}
 	\end{minted}
@@ -408,7 +409,7 @@
 
 		// [...]
 
-		for (nome = @\HighlightInit{valor~inicial}@; @\Highlight{condição}@; @\Highlight{passo}@) {
+		for (nome = @\HighlightInit{valor}@; @\Highlight{condição}@; @\Highlight{passo}@) {
 			ações;
 		}
 	\end{minted}
@@ -469,11 +470,11 @@
 	\end{minted}
 
 	\begin{minted}{arduino}
-		@\HighlightType{tipo}@ nome[@\Highlight{quantidade}@] = {@\HighlightInit{valores~iniciais}@};
+		@\HighlightType{tipo}@ nome[@\Highlight{quantidade}@] = {@\HighlightInit{valores}@};
 	\end{minted}
 
 	\begin{minted}{arduino}
-		@\HighlightType{tipo}@ nome[] = {@\HighlightInit{valores~iniciais}@};
+		@\HighlightType{tipo}@ nome[] = {@\HighlightInit{valores}@};
 	\end{minted}
 
 	De toda forma, o tamanho de vetores é fixo e deve ser conhecido durante a compilação.
