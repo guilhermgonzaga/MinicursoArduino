@@ -16,11 +16,13 @@
 \end{frame}
 
 
+{ \definecolor{background}{named}{white}
 \begin{frame}{\insertsection: \insertsubsection}
 
 	\SketchDiagram[width=\textwidth]{blink}
 
 \end{frame}
+}
 
 
 \subsection{\textit{Blink} sem delay}
@@ -28,6 +30,7 @@
 
 \begin{frame}[b,fragile]{\insertsection: \insertsubsection}
 
+	\vspace{-\smallskipamount}
 	\SketchCode{blinkSemDelay}
 
 	\vfill

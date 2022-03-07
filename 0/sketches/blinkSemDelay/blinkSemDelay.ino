@@ -1,21 +1,19 @@
 // SPDX-License-Identifier: CC0-1.0
 
-const unsigned long intervalo = 1000;  // em milissegundos
-unsigned long momentoAnterior = millis();
+const unsigned long intervaloMs = 1000; // Tempo até acender/apagar
+unsigned long instanteAnterior = millis();
 bool ledAceso = false;
 
 void setup() {
 	pinMode(LED_BUILTIN, OUTPUT);
-	digitalWrite(LED_BUILTIN, LOW);  // Garante estado inicial
+	digitalWrite(LED_BUILTIN, LOW); // Inicialmente apagado
 }
-
 void loop() {
-	unsigned long momentoAtual = millis();
+	unsigned long instanteAtual = millis();
 
-	if (momentoAtual - momentoAnterior >= intervalo) {
-		momentoAnterior = momentoAtual;
+	if (instanteAtual - instanteAnterior >= intervaloMs) {
+		instanteAnterior += intervaloMs; // Alternativa:  = instanteAtual
 		ledAceso = !ledAceso;
-
 		if (ledAceso) {
 			digitalWrite(LED_BUILTIN, HIGH);
 		} else {
