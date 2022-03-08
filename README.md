@@ -2,8 +2,8 @@
 
 # MinicursoArduino
 
-[![Build Slides](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20Slides/badge.svg)][gh-actions]
-[![Compile Sketches](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Compile%20Sketches/badge.svg)][gh-actions]
+[![Slides](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Build%20and%20Release%20Slides/badge.svg)][gh-actions]
+[![Sketches](https://github.com/guilhermgonzaga/MinicursoArduino/workflows/Compile%20Sketches/badge.svg)][gh-actions]
 
 [gh-actions]: https://github.com/guilhermgonzaga/MinicursoArduino/actions
 
